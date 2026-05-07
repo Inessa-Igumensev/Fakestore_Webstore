@@ -27,6 +27,7 @@ function App() {
 
 export default App;
 
+
 const Navbar = () => {
   return (
     <div className="navbar">
