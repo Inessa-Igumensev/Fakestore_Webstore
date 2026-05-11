@@ -1,7 +1,10 @@
 export default function Start() {
   return (
     <div className="start">
-      <div className="collection-wrapper">{/* Kategorien abbilden */}</div>
+      <div className="collection-wrapper">
+        <span>Unsere Kollektion</span>
+        {/* Kategorien abbilden */}
+      </div>
       <div className="newThings">
         {/* Arial, Helvetica, sans-serif */}
         <div className="toTheBlog">

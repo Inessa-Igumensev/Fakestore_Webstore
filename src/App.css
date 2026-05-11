@@ -1,0 +1,129 @@
+@import "@fontsource/lato";
+
+/* Color of the icons: rgb(43, 43, 43) */
+
+/* CSS reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: rgba(0, 0, 0, 0);
+  --secondaryBackground: rgb(45, 45, 45);
+  --borderColor: rgb(45, 45, 45);
+
+  --ff-body: "Courier New", Courier, monospace;
+  --ff-heading: "Lato", sans-serif;
+}
+
+.container {
+  background-color: var(--background);
+}
+
+.header {
+  position: static;
+  display: grid;
+  grid-template-columns: 100%;
+  margin-bottom: -2px;
+  height: auto;
+  width: 100%;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0px;
+}
+
+.shippingInfo {
+  background-color: var(--secondaryBackground);
+  position: relative;
+
+  display: flex;
+  justify-content: center; /* Horizontal mittig */
+  align-items: center; /* Vertikal mittig */
+
+  span {
+    font-family: var(--ff-body);
+    text-align: center;
+    line-height: 1.4em;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+  }
+}
+
+.logoContainer {
+  grid-row: span 2 / span 2;
+  grid-row-start: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /*   logo {
+  
+  } 
+  */
+
+  span {
+    font-family: var(--ff-heading);
+    font-size: 20px;
+  }
+}
+
+/* -------- Navbar Styling -------- */
+
+.navbar {
+  grid-row-start: 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--ff-body);
+  border: 1px solid var(--borderColor);
+  padding: 0 20px; /* Ein wenig Abstand zu den Rändern */
+  width: 100%;
+  overflow: hidden;
+  height: 60px;
+
+  a {
+    float: none;
+    text-decoration: none;
+    text-size-adjust: 100%;
+  }
+}
+
+.navbar > a:first-child {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex: 2;
+}
+
+.nav-user-cart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+/* -------- Sidebar-Styling -------- */
+
+.sidebar {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar a {
+  display: block;
+  text-align: center;
+  margin-left: 20px;
+  padding: 5px;
+  font-size: 20px;
+}
