@@ -1,15 +1,16 @@
-
 export function Subscribe() {
   return (
-    <div className="subscribe">
-      <form>
-        <span>Dem Club der Papierliebhaber beitreten</span>
-        <p>Aktuelle Infos über Neuigkeiten</p>
-        <label>
-          E-Mail-Adresse
-          <input type="text" />
-        </label>
-        <br />
+    <div className="subscribe-content">
+      <h3>Dem Club der Papierliebhaber beitreten</h3>
+      <p>Aktuelle Infos über Neuigkeiten</p>
+      
+      <form className="subscribe-form">
+        <div className="input-group">
+          <label htmlFor="email">E-Mail-Adresse *</label>
+          <input id="email" type="email" required />
+        </div>
+        
+        <button type="submit">Abonnieren</button>
       </form>
     </div>
   );

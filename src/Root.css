@@ -1,0 +1,12 @@
+@import "@fontsource/lato";
+
+:root {
+  --background: rgba(0, 0, 0, 0);
+  --secondaryBackground: rgb(45, 45, 45);
+  --borderColor: rgb(45, 45, 45);
+
+  --ff-body: "Courier New", Courier, monospace;
+  --ff-heading: "Lato", sans-serif;
+
+  --iconsize: 22px;
+}

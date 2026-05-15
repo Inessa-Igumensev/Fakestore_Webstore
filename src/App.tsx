@@ -19,21 +19,24 @@ function App() {
         <Logo />
         <Navbar />
       </div>
+      <Sidebar />
+     
+      <main>
+        <Routes>
+          <Route path="/search" element={<SearchProducts />} />
+          <Route path="/" element={<Start />} />
+          <Route path="/info" element={<Info />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </main>
+
       <div className="footer">
         <Subscribe />
         <Contact />
-        <Sidebar />
+        <div className="copyright">
+          © 2035 Beispiel
+        </div>
       </div>
-      <Routes>
-        <Route path="/search" element={<SearchProducts />} />
-        <Route path="/" element={<Start />} />
-        {/*<Route path="/products" element={<Products />} />*/}
-        <Route path="/info" element={<Info />} />
-        {/*<Route path="/contact" element={<Contact />} />*/}
-        {/*<Route path="/blog" element={<Blog />} /> */}
-        <Route path="/login" element={<Login />} />
-        {/*<Route path="/cart" element={<Cart />} />*/}
-      </Routes>
     </div>
   );
 }

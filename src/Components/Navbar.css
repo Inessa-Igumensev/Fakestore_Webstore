@@ -1,0 +1,134 @@
+@import url("Header.css");
+@import url("../Root.css");
+
+.navbar {
+  grid-row-start: 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  width: calc(100% - 160px);
+  font-family: var(--ff-body);
+  transition: color 0.3s ease;
+  gap: 0;
+  overflow: visible;
+  height: 60px;
+  border-top: 1px solid var(--borderColor);
+  border-bottom: 1px solid var(--borderColor);
+
+  a {
+    float: none;
+    text-decoration: none;
+    text-size-adjust: 100%;
+    color: var(--secondaryBackground);
+    font-size: 16px;
+
+    &:hover {
+      color: gray;
+    }
+  }
+}
+
+.navbar > a:first-child {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.searchProductsBtn {
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid var(--borderColor);
+  background-color: var(--background);
+  box-sizing: border-box;
+  padding-block: 1px;
+  padding-inline: 6px;
+  height: 100%;
+
+  span {
+    font-size: 16px;
+    font-family: var(--ff-body);
+    letter-spacing: 0em;
+  }
+
+  iconSearch {
+    font-size: var(--iconsize);
+  }
+}
+
+.nav-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex: 2;
+
+  a:not(:last-child)::after {
+    content: "|";
+    color: var(--borderColor);
+    margin-left: 15px;
+    font-weight: 300;
+  }
+}
+
+/* Dropdown Styling */
+.productDropdown {
+  overflow: visible;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  background-color: #fff;
+  z-index: 1;
+
+  a {
+    float: none;
+    color: var(--secondaryBackground);
+    text-decoration: none;
+    padding-inline: 10px;
+    padding-block-start: 0.5em;
+    padding-block-end: 0.5em;
+    white-space: nowrap;
+    display: block;
+    text-align: center;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--borderColor);
+    }
+
+    &:hover {
+      color: gray;
+    }
+  }
+}
+
+.productDropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav-user-cart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.loginButton {
+  border: none;
+  font-family: var(--ff-body);
+  font-size: 16px;
+  background-color: var(--background);
+}
+
+.iconUser,
+.iconCart {
+  font-size: var(--iconsize);
+}

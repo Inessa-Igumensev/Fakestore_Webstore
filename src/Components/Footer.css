@@ -1,0 +1,8 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 160px);
+  margin-block-start: 1.8em;
+  margin-inline: auto;
+
+}

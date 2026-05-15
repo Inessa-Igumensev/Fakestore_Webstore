@@ -1,0 +1,61 @@
+@import url("../Root.css");
+@import url("./Footer.css");
+
+.subscribe-content {
+  text-align: center;
+  border-top: 1px solid var(--borderColor);
+  margin-block: 30px;
+  padding-block: 30px;
+
+  h3 {
+    font-family: var(--ff-heading);
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  p {
+    font-family: var(--ff-body);
+  }
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap:10px;
+  margin-top: 20px;
+
+  button {
+    background-color: var(--secondaryBackground);
+    color: white;
+    border: 1px solid var(--borderColor);
+    font-family: var(--ff-body);
+    cursor: pointer;
+    transition: opacity 0.2s;
+    padding: 11px 25px; 
+  }
+
+  button:hover{
+    background-color: var(--background);
+    color: var(--secondaryBackground);
+    opacity: 0.8;
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column; 
+  text-align: left;   
+
+  label{
+    font-family: var(--ff-body);
+  font-size: 14px;
+  }
+
+  input{
+      width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  }
+}
