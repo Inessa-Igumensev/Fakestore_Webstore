@@ -10,6 +10,7 @@ import { Logo } from "./Components/Logo";
 import { Subscribe } from "./Components/Subscribe";
 import { Contact } from "./Components/Contact";
 import Sidebar from "./Sidebar";
+import Blog from "./Components/Blog";
 
 function App() {
   return (
@@ -20,12 +21,13 @@ function App() {
         <Navbar />
       </div>
       <Sidebar />
-     
+
       <main>
         <Routes>
           <Route path="/search" element={<SearchProducts />} />
           <Route path="/" element={<Start />} />
           <Route path="/info" element={<Info />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </main>
@@ -33,9 +35,7 @@ function App() {
       <div className="footer">
         <Subscribe />
         <Contact />
-        <div className="copyright">
-          © 2035 Beispiel
-        </div>
+        <div className="copyright">© 2035 Beispiel</div>
       </div>
     </div>
   );

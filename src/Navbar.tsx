@@ -27,7 +27,7 @@ export const Navbar = () => {
           </div>
         </div>
         <Link to="/info">Info</Link>
-        <Link to="/about">Blog</Link>
+        <Link to="/blog">Blog</Link>
         <Link to="/contact">Kontakt</Link>
       </div>
       <div className="nav-user-cart">

@@ -1,0 +1,57 @@
+@import url("../Root.css");
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  width: calc(100% - 160px);
+  gap: 40px;
+  margin: auto; /*das gesamte Grid zentrieren */
+}
+
+.blog-headline {
+  grid-column: 1/-1;
+
+  h1 {
+    text-align: center;
+    font-family: var(--ff-heading);
+    font-size: 40px;
+    font-weight: 100;
+    letter-spacing: 0.1em;
+    padding-block: 30px;
+    border-bottom: 1px solid var(--borderColor);
+  }
+}
+
+.blog-picture {
+  grid-row: 2;
+  grid-column: 1;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border: 1px solid lightgray;
+  }
+}
+
+.infoLowerSection {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.spacing-infoLowerSection {
+  padding-block: 70px;
+  padding-inline-start: 80px;
+  padding-inline-end: 80px;
+
+  span {
+    letter-spacing: -0.05em;
+  }
+
+  p {
+    margin-block-end: 1.5em;
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}

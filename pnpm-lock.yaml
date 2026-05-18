@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/cousine':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@fontsource/lato':
         specifier: ^5.2.7
         version: 5.2.7
@@ -180,6 +183,9 @@ packages:
   '@eslint/plugin-kit@0.7.1':
     resolution: {integrity: sha512-rZAP3aVgB9ds9KOeUSL+zZ21hPmo8dh6fnIFwRQj5EAZl9gzR7wxYbYXYysAM8CTqGmUGyp2S4kUdV17MnGuWQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
+
+  '@fontsource/cousine@5.2.7':
+    resolution: {integrity: sha512-2l6qNHghWeQDGqaR1QmS8iR1YWzhZczcVQpR/MJVNSKE8bELI6v2Rqe+d4pFfG+5PY9QhvZ+aKriqlbKubcR8g==}
 
   '@fontsource/lato@5.2.7':
     resolution: {integrity: sha512-k5mum1ADbDW5cTw1Ett1eQVWeoZ6gq0ct6SFBibEhB4LRxhniChJZTBgd6ph5yBxLkN1fcnsnmicBNA4S/3nbw==}
@@ -1127,6 +1133,8 @@ snapshots:
     dependencies:
       '@eslint/core': 1.2.1
       levn: 0.4.1
+
+  '@fontsource/cousine@5.2.7': {}
 
   '@fontsource/lato@5.2.7': {}
 
