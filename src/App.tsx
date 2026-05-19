@@ -10,7 +10,8 @@ import { Logo } from "./Components/Logo";
 import { Subscribe } from "./Components/Subscribe";
 import { Contact } from "./Components/Contact";
 import Sidebar from "./Sidebar";
-import Blog from "./Components/Blog";
+import BlogOverview from "./Components/Blog";
+import BlogPostDetails from "./Components/BlogPostDetails";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
           <Route path="/search" element={<SearchProducts />} />
           <Route path="/" element={<Start />} />
           <Route path="/info" element={<Info />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog" element={<BlogOverview />} />
+          <Route path="/blog/:id" element={<BlogPostDetails/>} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </main>

@@ -1,9 +1,20 @@
 @import url("../Root.css");
 
 .blog{
-    border: none;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+     width: calc(100% - 160px);
+     margin:auto;
 }
 
 .blog-headline{
-    
+   grid-column: 1/-1; 
+   text-align: center;
+}
+
+.blog-post-1{
+    grid-row-start: 2;
+    display: flex;
+    flex-direction: column;
 }
