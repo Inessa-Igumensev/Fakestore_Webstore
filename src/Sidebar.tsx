@@ -17,7 +17,7 @@ export default function Sidebar(){
           <FaYoutube />
         </a>
         <a href="#" className="socialMediaIkons">
-          <FaInstagram />{" "}
+          <FaInstagram />
         </a>
       </div>
     )

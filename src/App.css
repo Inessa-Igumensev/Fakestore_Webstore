@@ -6,7 +6,7 @@
 @import url("./Components/Contact.css");
 @import url("./Components/Info.css");
 @import url("./Components/Blog.css");
-
+@import url(Components/BlogPostDetails.css);
 /* CSS reset*/
 * {
   margin: 0;

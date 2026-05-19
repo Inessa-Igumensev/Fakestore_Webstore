@@ -3,9 +3,8 @@ import { PiEyeLight } from "react-icons/pi";
 import { FiMessageSquare } from "react-icons/fi";
 import { CiHeart } from "react-icons/ci";
 import { IoIosContact } from "react-icons/io";
-import placeHolderPic from "../assets/time.avif";
 import { Link } from "react-router-dom";
-import { blogPostdata } from "../blogData.js;
+import blogPostdata  from "../blogData";
 
 export default function BlogOverview() {
   return (
@@ -17,39 +16,35 @@ export default function BlogOverview() {
         <Link to={`/blog/${post.id}`} key={post.id} className="blog-post-link">
           <div className="blog-post-1">
             <div className="picture-post-1">
-              <img src={placeHolderPic} alt="" />
+              <img src={post.image} alt={post.title}/>
             </div>
             <div className="user-blog-post-1">
               <div className="user-info-blog-post-1">
                 <div className="icon-blog-post-1">
-                  {" "}
                   <IoIosContact />
                 </div>
                 <p>
-                  {" "}
                   <span className="userName">Admin</span>
                 </p>
-                <span className="date-of-creation">2. Feb. 2023</span>
-                <span className="read-Time">1 Min. Lesezeit</span>
+                <span className="date-of-creation">{post.date}</span>
+                <span className="read-Time">{post.readTime}</span>
                 <button className="icon-read-More">
                   <BiDotsVerticalRounded />
                 </button>
               </div>
 
               <div className="info-blog-post-1">
-                <h2>Lorem</h2>
+                <h2>{post.title}</h2>
                 <span>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam
+                  {post.content}
                 </span>
               </div>
               <div className="footer-blog-post-1">
                 <div className="number-saw-it">
-                  <PiEyeLight />
+                  <PiEyeLight />{post.views}
                 </div>
                 <div className="comments">
-                  <FiMessageSquare />
+                  <FiMessageSquare />{post.comments}
                 </div>
                 <button className="likes">
                   <CiHeart />
