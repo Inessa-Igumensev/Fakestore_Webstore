@@ -32,7 +32,7 @@ export default function BlogPostDetails() {
         </button>
       </div>
 
-      <h1 className="details-heaadline">{found.title} </h1>
+      <h1 className="details-headline">{found.title} </h1>
       <p className="details-subtitle">{found.subtitel} </p>
 
       <div className="details-Image">
@@ -53,7 +53,7 @@ export default function BlogPostDetails() {
       </div>
 
       <div className="detail-footer">
-        <div className="sozialIcons">
+        <div className="detail-sozialIcons">
           <FaFacebookF />
           <FaTwitter />
           <FaYoutube />
@@ -68,7 +68,7 @@ export default function BlogPostDetails() {
         </div>
       </div>
       <div className="latest-Blog-Post"></div>
-      <div className="comments">
+      <div className="details-comments">
         <h3>Kommentare</h3>
         <textarea placeholder="Kommentar verfassen"></textarea>
       </div>

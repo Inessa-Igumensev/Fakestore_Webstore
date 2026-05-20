@@ -8,8 +8,8 @@ import blogPostdata  from "../blogData";
 
 export default function BlogOverview() {
   return (
-    <div className="blog">
-      <div className="blog-headline">
+    <div className="blog-overwiev">
+      <div className="blog-headline-overwiev">
         <h1> Mein Beispiel Blog</h1>
       </div>
       {blogPostdata.map((post) => (

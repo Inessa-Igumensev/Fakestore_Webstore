@@ -1,4 +1,4 @@
-import Placeholder from "../assets/Placeholder.png";
+import Placeholder from "./assets/Placeholder.png";
 
 const blogPostdata = [
   {

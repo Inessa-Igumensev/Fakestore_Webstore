@@ -1,1 +1,6 @@
 @import url("../Root.css");
+
+.blog-post-details{
+    border: 1px solid var(--borderColor)
+}
+
