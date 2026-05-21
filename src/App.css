@@ -55,10 +55,6 @@ html, body, div, span, object, iframe,
         list-style: none;
     }
      
-    abbr[title], dfn[title] {
-        border-bottom: 1px dotted;
-    }
-     
     table {
         border-collapse: collapse;
         border-spacing: 0;

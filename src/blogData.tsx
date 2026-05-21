@@ -3,7 +3,7 @@ import Placeholder from "./assets/Placeholder.png";
 const blogPostdata = [
   {
     id: 1,
-    title: "Lorem",
+    title: "Lorem ipsum dolor",
     subtitel:
       "Wähle einen Untertitel für deinen Beitrag, der den Beitragsinhalt kurz zusammenfasst...",
     date: "2. Feb. 2023 ",
@@ -16,7 +16,7 @@ const blogPostdata = [
   },
   {
     id: 2,
-    title: "Lorem",
+    title: "Lorem ipsum dolor sit",
     subtitel:
       "Wähle einen Untertitel für deinen Beitrag, der den Beitragsinhalt kurz zusammenfasst...",
     date: "2. Feb. 2023 ",
@@ -29,7 +29,7 @@ const blogPostdata = [
   },
   {
     id: 3,
-    title: "Lorem",
+    title: "Lorem ipsum dolor sit amet",
     subtitel:
       "Wähle einen Untertitel für deinen Beitrag, der den Beitragsinhalt kurz zusammenfasst...",
     date: "2. Feb. 2023 ",

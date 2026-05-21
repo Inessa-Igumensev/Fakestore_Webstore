@@ -14,13 +14,13 @@ export default function BlogOverview() {
       </div>
       {blogPostdata.map((post) => (
         <Link to={`/blog/${post.id}`} key={post.id} className="blog-post-link">
-          <div className="blog-post-1">
-            <div className="picture-post-1">
+          <div className="blog-post">
+            <div className="picture-post">
               <img src={post.image} alt={post.title}/>
             </div>
-            <div className="user-blog-post-1">
-              <div className="user-info-blog-post-1">
-                <div className="icon-blog-post-1">
+            <div className="user-blog-post">
+              <div className="user-info-blog-post">
+                <div className="icon-blog-post">
                   <IoIosContact />
                 </div>
                 <p>
