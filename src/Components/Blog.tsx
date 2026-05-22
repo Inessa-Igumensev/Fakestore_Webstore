@@ -1,10 +1,10 @@
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { PiEyeLight } from "react-icons/pi";
-import { FiMessageSquare } from "react-icons/fi";
-import { CiHeart } from "react-icons/ci";
-import { IoIosContact } from "react-icons/io";
+import { BsSuitHeart } from "react-icons/bs";
+import { TfiComment } from "react-icons/tfi";
+import { IoEyeOutline } from "react-icons/io5";
+import { PiUserCircleDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
-import blogPostdata  from "../blogData";
+import blogPostdata from "../blogData";
 
 export default function BlogOverview() {
   return (
@@ -12,48 +12,62 @@ export default function BlogOverview() {
       <div className="blog-headline-overwiev">
         <h1> Mein Beispiel Blog</h1>
       </div>
-      {blogPostdata.map((post) => (
-        <Link to={`/blog/${post.id}`} key={post.id} className="blog-post-link">
-          <div className="blog-post">
-            <div className="picture-post">
-              <img src={post.image} alt={post.title}/>
-            </div>
-            <div className="user-blog-post">
-              <div className="user-info-blog-post">
-                <div className="icon-blog-post">
-                  <IoIosContact />
-                </div>
-                <p>
-                  <span className="userName">Admin</span>
-                </p>
-                <span className="date-of-creation">{post.date}</span>
-                <span className="read-Time">{post.readTime}</span>
-                <button className="icon-read-More">
-                  <BiDotsVerticalRounded />
-                </button>
+      <div className="blog-post-container">
+        {blogPostdata.map((post) => (
+          <Link
+            to={`/blog/${post.id}`}
+            key={post.id}
+            className="blog-post-link"
+          >
+            <div className="blog-post">
+              <div className="picture-post">
+                <img src={post.image} alt={post.title} />
               </div>
+              <div className="user-blog-post">
+                <div className="user-info-blog-post">
+                  <div className="icon-blog-post">
+                    <PiUserCircleDuotone />
+                  </div>
+                  <div className="blog-metadates">
+                    <p>
+                      <span className="userName">Admin</span>
+                    </p>
+                    <div className="date-of-creation">
+                      <span>{post.date}</span>
+                    </div>
+                    <div className="read-Time">
+                      <span>&middot; {post.readTime}</span>
+                    </div>
+                  </div>
+                  <button className="icon-read-More">
+                    <BiDotsVerticalRounded />
+                  </button>
+                </div>
 
-              <div className="info-blog-post-1">
-                <h2>{post.title}</h2>
-                <span>
-                  {post.content}
-                </span>
-              </div>
-              <div className="footer-blog-post-1">
-                <div className="number-saw-it">
-                  <PiEyeLight />{post.views}
+                <div className="info-blog-post">
+                  <h2>{post.title}</h2>
+                  <p>
+                    <span>{post.content}</span>
+                  </p>
                 </div>
-                <div className="comments">
-                  <FiMessageSquare />{post.comments}
+                <div className="footer-blog-post">
+                  <div className="meta-dates-blog">
+                    <span className="number-saw-it">
+                      <IoEyeOutline /> {post.views}
+                    </span>
+                    <span className="comments">
+                      <TfiComment /> {post.comments}
+                    </span>
+                  </div>
+                  <button className="likes">
+                    <BsSuitHeart />{" "}
+                  </button>
                 </div>
-                <button className="likes">
-                  <CiHeart />
-                </button>
               </div>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

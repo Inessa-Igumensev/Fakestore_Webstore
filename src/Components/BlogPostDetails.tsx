@@ -1,6 +1,6 @@
 import blogPostdata from "../blogData";
 import { useParams } from "react-router-dom";
-import { IoIosContact } from "react-icons/io";
+import { PiUserCircleDuotone } from "react-icons/pi";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -23,12 +23,12 @@ export default function BlogPostDetails() {
           <div className="detail-header">
             <div className="detail-user-info">
               <div className="detail-user-icon">
-                <IoIosContact />
+                <PiUserCircleDuotone />
               </div>
               <div>
-                <span className="author-name">Admin</span>
+                <span className="author-name">Admin </span>
                 <span className="meta-dates">
-                  {found?.date} &middot; {found?.readTime}
+                  &middot; {found?.date} &middot; {found?.readTime}
                 </span>
               </div>
             </div>
@@ -44,16 +44,27 @@ export default function BlogPostDetails() {
             <img src={found?.image} alt={found?.title} />
           </div>
           <div className="details-content">
-            <p> {found?.content}</p>
-            <p className="details-p">
-              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At"
+            <p>
+              <span>{found?.content}</span>
             </p>
-            <p className="details-p2">
+            <div className="details-quote">
+              <div className="details-quote-box">
+                <span>
+                  <p>
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et
+                    accusam et"
+                  </p>
+                </span>
+              </div>
+            </div>
+
+            <p className="dedetails-p">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren,
             </p>
           </div>
 
@@ -65,8 +76,11 @@ export default function BlogPostDetails() {
               <FaInstagram />
             </div>
             <div className="details-count">
-              <span>{found?.views} Ansichten</span>
-              <span>{found?.comments} Kommentare </span>
+              <div className="details-count-left">
+                <span>{found?.views} Ansichten</span>
+                <span>{found?.comments} Kommentare </span>
+              </div>
+
               <button className="details-likes">
                 <BsSuitHeart />
               </button>
