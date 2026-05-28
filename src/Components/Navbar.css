@@ -56,6 +56,10 @@
   iconSearch {
     font-size: var(--iconsize);
   }
+
+  &:hover {
+    color: gray;
+  }
 }
 
 .nav-middle {
@@ -65,12 +69,13 @@
   gap: 15px;
   flex: 2;
 
-  a:not(:last-child)::after {
+  a:not(:last-child):not(.dropdown-content a)::after {
     content: "|";
     color: var(--borderColor);
     margin-left: 15px;
     font-weight: 300;
   }
+
 }
 
 /* Dropdown Styling */
@@ -126,6 +131,10 @@
   font-family: var(--ff-body);
   font-size: 16px;
   background-color: var(--background);
+
+  &:hover {
+    color: gray;
+  }
 }
 
 .iconUser,

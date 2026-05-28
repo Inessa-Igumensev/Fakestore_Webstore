@@ -2,8 +2,17 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { PiShoppingCartBold } from "react-icons/pi";
 import { LuCircleUserRound } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Login from "./Components/Login";
 
 export const Navbar = () => {
+  const [ seen,setSeen] = useState<boolean>(false);
+
+    function togglePop () {
+        setSeen(!seen);
+    };
+
+
   return (
     <div className="navbar">
       <Link to="/search">
@@ -34,9 +43,8 @@ export const Navbar = () => {
         <Link to="/user">
           <span className="iconUser"> {<LuCircleUserRound />}</span>
         </Link>
-        <Link to="/login">
-          <button className="loginButton">Anmelden</button>
-        </Link>
+          <button className="loginButton" onClick={togglePop}>Anmelden</button>
+          {seen ? <Login toggle={togglePop} /> : null}
         <Link to="/cart">
           <span className="iconCart">{<PiShoppingCartBold />}</span>
         </Link>

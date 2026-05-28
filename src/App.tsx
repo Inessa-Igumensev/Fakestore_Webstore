@@ -2,7 +2,6 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Start from "./Components/Start";
 import SearchProducts from "./Components/SearchProducts";
-import Login from "./Components/Login";
 import Info from "./Components/Info";
 import { ShippingInfo } from "./Components/ShippingInfo";
 import { Navbar } from "./Navbar";
@@ -30,7 +29,7 @@ function App() {
           <Route path="/info" element={<Info />} />
           <Route path="/blog" element={<BlogOverview />} />
           <Route path="/blog/:id" element={<BlogPostDetails/>} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
 
