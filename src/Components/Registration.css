@@ -1,0 +1,16 @@
+@import url("../Root.css");
+
+.signUpFeld input[type="text"],
+.signUpFeld input[type="email"],
+.signUpFeld input[type="password"],
+.signUpFeld button {
+  display: block;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 15px; /* Abstand zwischen den Feldern */
+  box-sizing: border-box; /* Berücksichtigt Padding in der Breite */
+  background: #f1f1f1;
+  padding: 10px;
+  border: 1px solid var(--borderColor);
+  font-family: var(--ff-body);
+}
