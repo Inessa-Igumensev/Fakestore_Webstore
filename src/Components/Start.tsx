@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import placeHolderPic from "../assets/time.avif";
-
+import placeHolderPic from "../assets/Placeholder.png";
 
 const collections = [
   { slug: "notebooks", title: "Notebooks", img: placeHolderPic },
@@ -30,16 +29,19 @@ export default function Start() {
 
       <Link to="/blog" className="to-the-blog">
         <img src={placeHolderPic} alt="" />
-        <h4>Geschichten & Guides</h4>
-        <p>Blog lesen</p>
+        <div className="storys-guides">
+          <h4>Geschichten & Guides</h4>
+          <p>Blog lesen</p>
+        </div>
       </Link>
 
       <Link to="/shop" className="to-the-shop">
-       <img src={placeHolderPic} alt="" />
-        <h4>Limitierte Auflage</h4>
-        <p>Einkaufen</p>
+        <img src={placeHolderPic} alt="" />
+        <div className="limit-edition">
+          <h4>Limitierte Auflage</h4>
+          <p>Einkaufen</p>
+        </div>
       </Link>
-    
     </div>
   );
 }
