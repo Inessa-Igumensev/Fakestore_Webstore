@@ -12,28 +12,72 @@
   align-items: center;
 }
 
-.signInForm input[type="text"],
-.signInForm input[type="password"],
-.signInForm button {
-  display: block;
-  width: 100%;
-  margin-block: 10px;
-  box-sizing: border-box;
-  font-family: var(--ff-body);
-  background: var(--background);
-  padding: 10px;
-  border: 1px solid var(--borderColor);
-  
-}
-
 .login-container {
   background: white;
-  padding: 2rem;
-  border-radius: 8px;
   position: relative;
-  min-width: 300px;
+  width: 370px;
+  height: 450px;
   color: var(--f-color);
+  border-radius: 50px 5px;
+  overflow: hidden;
 }
+
+.login-container::before,
+.login-container::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 370px;
+  height: 450px;
+  background: linear-gradient(60deg, transparent, #45f3ff, #45f3ff);
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+
+.login-container::after {
+  background: linear-gradient(60deg, transparent, #d9138a, #d9138a);
+  animation-delay: -3s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.signInForm {
+  position: absolute;
+  inset: 2px;
+  z-index: 10;
+
+  border-radius: 50px 5px;
+  padding-block: var(--space-lg);
+  padding-inline: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+
+}
+
+.signInFeld{
+    h1{
+    font-size: var(--fs-subheading);
+    font-family: var(--ff-heading);
+    opacity: 0.9;
+    color: var(--f-color);
+    margin-block-end: var(--space-md);
+  }
+}
+
+.input-box{
+  width: 100%;
+    margin-block-start: var(--space-md);
+
+}
+
 
 .closeButton {
   position: absolute;
