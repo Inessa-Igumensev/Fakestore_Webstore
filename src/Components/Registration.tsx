@@ -48,36 +48,44 @@ export default function Registration() {
     <div className="registration">
       <form className="signUpFeld" onSubmit={handleSubmit}>
         <h1>Registrieren</h1>
-        <input
+        <div className="signUp-scroller">
+          <label>Username</label>
+<input
           type="text"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
           placeholder="Username"
         />
+        <label>Vorname</label>
         <input
           type="text"
           value={userFirstname}
           onChange={(e) => setFirstname(e.target.value)}
           placeholder="Vorname"
         />
+        <label>Nachnahme</label>
         <input
           type="text"
           value={userSurname}
           onChange={(e) => setSurname(e.target.value)}
           placeholder="Nachname"
         />
+        <label>E-Mail</label>
         <input
           type="email"
           value={userEmail}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-Mail"
         />
+        <label>Password</label>
         <input
           type="password"
           value={userPassword}
           onChange={(e) => setUserPassword(e.target.value)}
           placeholder="passwort"
         />
+        </div>
+        
         <button className="signUpButton" type="submit">
           Registrieren
         </button>

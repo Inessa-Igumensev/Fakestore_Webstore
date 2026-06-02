@@ -10,13 +10,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-inline: var(--space-md);
+  padding-block: var(--space-md);
 }
 
 .login-container {
-  background: white;
+  background: rgb(var(--background));
   position: relative;
-  width: 370px;
-  height: 450px;
+  width: 100%;
+  max-width: 400px;
+  height: clamp(400px, 70vh, 500px);
   color: var(--f-color);
   border-radius: 50px 5px;
   overflow: hidden;
@@ -28,15 +31,15 @@
   position: absolute;
   top: -50%;
   left: -50%;
-  width: 370px;
-  height: 450px;
-  background: linear-gradient(60deg, transparent, #45f3ff, #45f3ff);
-  transform-origin: bottom right;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, #cd26fb, #cd26fb);
+  transform-origin: bottom-right;
   animation: animate 6s linear infinite;
 }
 
 .login-container::after {
-  background: linear-gradient(60deg, transparent, #d9138a, #d9138a);
+  background: linear-gradient(60deg, transparent, #fcfcfc, #fcfcfc);
   animation-delay: -3s;
 }
 
@@ -51,33 +54,86 @@
 
 .signInForm {
   position: absolute;
-  inset: 2px;
+  background-color: white;
+  inset: var(--space-sm);
   z-index: 10;
-
-  border-radius: 50px 5px;
-  padding-block: var(--space-lg);
+  border-radius: 45px 3px;
+  padding-block: var(--space-xl);
   padding-inline: var(--space-lg);
   display: flex;
   flex-direction: column;
-
+  justify-content: flex-start;
 }
 
-.signInFeld{
-    h1{
-    font-size: var(--fs-subheading);
+.signInFeld {
+  h1 {
+    font-size: var(--fs-heading);
     font-family: var(--ff-heading);
-    opacity: 0.9;
     color: var(--f-color);
-    margin-block-end: var(--space-md);
   }
 }
 
-.input-box{
+.input-box {
   width: 100%;
-    margin-block-start: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-sm);
 
+  label {
+    font-size: var(--fs-card-title);
+    margin-block-start: var(--space-md);
+  }
 }
 
+.input-box input::placeholder {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--f-color);
+  opacity: 0.8;
+}
+
+.input-box input[type="text"],
+.input-box input[type="password"] {
+  width: 100%;
+  outline: none;
+  padding-block: var(--space-sm);
+  padding-inline: var(--space-sm);
+  background-color: #f5f5f5;
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  font-size: var(--ff-body);
+  font-family: var(--ff-body);
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-block-start: var(--space-sm);
+  margin-block-end: var(--space-md);
+
+  &:focus {
+    border: 2px solid var(--borderColor);
+  }
+}
+
+.signInButton {
+  font-family: var(--ff-body);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: var(--fs-body);
+  background-color: var(--f-color);
+  width: 100%;
+  padding-block: var(--space-md);
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  margin-block-start: var(--space-md);
+  transition-duration: 0.4s;
+
+  &:hover {
+    background-color: #ffffff;
+    color: var(--f-color);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
 
 .closeButton {
   position: absolute;
@@ -85,12 +141,26 @@
   right: 15px;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: var(--space-lg);
   cursor: pointer;
+  z-index: 20;
 }
 
 .toggleText {
-  margin-block-start: 15px;
-  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
+  gap: 5px;
+  padding-block-start: var(--space-sm);
+  margin-block: var(--space-md);
+
+  .goToSignIn {
+    color: blue;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

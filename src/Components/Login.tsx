@@ -65,9 +65,8 @@ export default function Login({ toggle }: PopUpProps) {
             </form>
             <p className="toggleText">
               Noch nicht registriert?{" "}
-              <span
+              <span className="goToSignIn"
                 onClick={() => setIsLogin(false)}
-                style={{ color: "blue", cursor: "pointer" }}
               >
                 Hier klicken
               </span>

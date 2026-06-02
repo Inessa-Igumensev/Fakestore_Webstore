@@ -46,6 +46,7 @@
   padding-block: 1px;
   padding-inline: 6px;
   height: 100%;
+  transition: width 0.4s ease-in-out;
 
   span {
     font-size: 16px;

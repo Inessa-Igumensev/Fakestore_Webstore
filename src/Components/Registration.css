@@ -1,16 +1,94 @@
 @import url("../Root.css");
 
-.signUpFeld input[type="text"],
-.signUpFeld input[type="email"],
-.signUpFeld input[type="password"],
-.signUpFeld button {
-  display: block;
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: 15px; /* Abstand zwischen den Feldern */
-  box-sizing: border-box; /* Berücksichtigt Padding in der Breite */
-  background: #f1f1f1;
-  padding: 10px;
-  border: 1px solid var(--borderColor);
+.signUpFeld {
+  position: absolute;
+  background-color: white;
+  inset: var(--space-sm);
+  z-index: 10;
+  border-radius: 45px 3px;
+  padding-block: var(--space-lg);
+  padding-inline: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  h1 {
+    font-size: var(--fs-heading);
+    font-family: var(--ff-heading);
+    color: var(--f-color);
+    margin-block-end: var(--space-md);
+  }
+
+  label {
+    font-size: var(--fs-card-title);
+    display: block;
+    margin-block-start: var(--space-md);
+  }
+
+  input:not([type="submit"]):not([type="button"]) {
+    width: 100%;
+    outline: none;
+    padding-block: var(--space-md);
+    padding-inline: var(--space-sm);
+    background-color: #f5f5f5;
+    border: 1px solid var(--borderColor);
+    border-radius: 8px;
+    font-size: var(--ff-body);
+    font-family: var(--ff-body);
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-block-start: var(--space-sm);
+    margin-block-end: var(--space-md);
+
+    &:focus {
+      border: 2px solid var(--borderColor);
+    }
+
+    &::placeholder {
+      font-size: var(--fs-body);
+      font-family: var(--ff-body);
+      color: var(--f-color);
+      opacity: 0.8;
+    }
+  }
+}
+
+.signUp-scroller {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-inline-end: var(--space-sm);
+  margin-block-end: var(--space-sm);
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+  }
+}
+
+.signUpButton {
   font-family: var(--ff-body);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: var(--fs-body);
+  background-color: var(--f-color);
+  width: 100%;
+  padding-block: var(--space-md);
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  margin-block-start: var(--space-md);
+  transition-duration: 0.4s;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: #ffffff;
+    color: var(--f-color);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
