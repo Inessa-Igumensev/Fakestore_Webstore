@@ -19,7 +19,7 @@ export function Contact() {
     </div>
     <div className="open">
       <h5>Öffnungszeiten</h5>
-      <p>Mon -Fri:7 - 22 Uhr</p>
+      <p>Mon - Fri:7 - 22 Uhr</p>
       <p>Sa.: 8 - 22 Uhr</p>
       <p>So.: 8 - 23 Uhr</p>
     </div>

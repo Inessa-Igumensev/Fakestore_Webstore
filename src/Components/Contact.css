@@ -3,27 +3,27 @@
 /* Contact Styling */
 .contact {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--borderColor);
   border-bottom: 1px solid var(--borderColor);
 
   h5 {
-  font-family: var(--ff-heading);
-  font-size: 26px;
+    font-family: var(--ff-heading);
+    font-size: var(--fs-card-title);
     font-weight: 300;
-    margin-bottom: 10px;
-}
+    margin-block-start: var(--space-md);
+    margin-block-end: var(--space-md);
+  }
 
-div{
-   padding: 20px 30px; 
-}
+  div {
+    padding: 20px 30px;
+  }
 
-.contact p {
-  font-family: var(--ff-heading);
-  font-size: 16px;
-  line-height: 1.6em;
-}
-
+  p {
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    padding-block:0.2rem;
+  }
 }
 
 .contact > div:not(:first-child) {
@@ -34,5 +34,5 @@ div{
   text-align: center;
   padding: 20px;
   font-family: var(--ff-body);
-  font-size: 12px;
+  font-size: var(--fs-body);
 }

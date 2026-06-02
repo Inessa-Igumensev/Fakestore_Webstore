@@ -4,13 +4,14 @@
 .subscribe-content {
   text-align: center;
   border-top: 1px solid var(--borderColor);
-  margin-block: 30px;
-  padding-block: 30px;
+  margin-block: var(--space-lg);
+  padding-block: var(--space-lg);
 
   h3 {
     font-family: var(--ff-heading);
-    font-size: 26px;
-    font-weight: 400;
+    font-size: var(--fs-subheading);
+    font-weight: 300;
+    margin-block-end: var(--space-md);
   }
 
   p {
@@ -22,20 +23,33 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap:10px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-block-start: var(--space-md);
 
   button {
-    background-color: var(--secondaryBackground);
-    color: white;
-    border: 1px solid var(--borderColor);
-    font-family: var(--ff-body);
-    cursor: pointer;
-    transition: opacity 0.2s;
-    padding: 11px 25px; 
+   font-family: var(--ff-body);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: var(--fs-body);
+  background-color: var(--f-color);
+  padding-block: var(--space-md);
+  padding-inline: var(--space-lg);
+  border: 1px solid var(--borderColor);
+  margin-block-start: var(--space-md);
+  transition-duration: 0.4s;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: #ffffff;
+    color: var(--f-color);
   }
 
-  button:hover{
+  &:active {
+    transform: scale(0.98);
+  }
+  }
+
+  button:hover {
     background-color: var(--background);
     color: var(--secondaryBackground);
     opacity: 0.8;
@@ -44,18 +58,26 @@
 
 .input-group {
   display: flex;
-  flex-direction: column; 
-  text-align: left;   
+  flex-direction: column;
+  text-align: left;
 
-  label{
+  label {
     font-family: var(--ff-body);
-  font-size: 14px;
+    font-size: var(--fs-body);
+     margin-block-start: var(--space-md);
   }
 
-  input{
-      width: 400px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  outline: none;
+  input {
+    width: 100%;
+    outline: none;
+    padding-block: var(--space-md);
+    padding-inline: var(--space-sm);
+    background-color: #f5f5f5;
+    border: 1px solid var(--borderColor);
+    font-size: var(--ff-body);
+    font-family: var(--ff-body);
+    cursor: pointer;
+    box-sizing: border-box;
+ 
   }
 }
