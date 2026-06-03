@@ -11,8 +11,8 @@
     font-family: var(--ff-heading);
     font-size: var(--fs-card-title);
     font-weight: 300;
-    margin-block-start: var(--space-md);
-    margin-block-end: var(--space-md);
+    margin-block-start: var(--space-lg);
+    margin-block-end: var(--space-lg);
   }
 
   div {
@@ -22,7 +22,7 @@
   p {
     font-family: var(--ff-body);
     font-size: var(--fs-body);
-    padding-block:0.2rem;
+    padding-block:var(--space-xs);
   }
 }
 
