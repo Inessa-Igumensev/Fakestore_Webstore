@@ -28,15 +28,15 @@ function App() {
           <Route path="/" element={<Start />} />
           <Route path="/info" element={<Info />} />
           <Route path="/blog" element={<BlogOverview />} />
-          <Route path="/blog/:id" element={<BlogPostDetails/>} />
+          <Route path="/blog/:id" element={<BlogPostDetails />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
 
       <div className="footer">
-        <Subscribe />
-        <Contact />
-        <div className="copyright">© 2035 Beispiel</div>
+          <Subscribe />
+          <Contact />
+          <div className="copyright">© 2035 Beispiel</div>
       </div>
     </div>
   );

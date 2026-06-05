@@ -11,7 +11,7 @@ export function Subscribe() {
           <div className="abo-newsletter">
             <input type="checkbox" id="newsletter" />
             <label htmlFor="newsletter">
-              <span>Ja, ich möchte Ihren Newsletter abonnieren. *</span>
+              Ja, ich möchte Ihren Newsletter abonnieren. *
             </label>
           </div>
           <button type="submit">Abonnieren</button>

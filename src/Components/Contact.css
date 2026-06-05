@@ -1,24 +1,30 @@
 @import url("../Root.css");
+@import url("./Footer.css");
 
 /* Contact Styling */
 .contact {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
   border-top: 1px solid var(--borderColor);
   border-bottom: 1px solid var(--borderColor);
+
+   div {
+    padding-block: var(--space-xxl);
+    padding-inline: var(--space-2xl);
+    
+  }
+
 
   h5 {
     font-family: var(--ff-heading);
     font-size: var(--fs-card-title);
     font-weight: 300;
-    margin-block-start: var(--space-lg);
     margin-block-end: var(--space-lg);
+
   }
 
-  div {
-    padding: 20px 30px;
-  }
-
+ 
   p {
     font-family: var(--ff-body);
     font-size: var(--fs-body);
@@ -31,6 +37,7 @@
 }
 
 .copyright {
+
   text-align: center;
   padding: 20px;
   font-family: var(--ff-body);

@@ -1,5 +1,6 @@
 export function Contact() {
   return <div className="contact">
+    
     <div className="listing-products">
       <h5>Shop</h5>
       <p>Grußkarten</p>

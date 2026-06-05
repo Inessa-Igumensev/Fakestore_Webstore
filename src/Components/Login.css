@@ -19,7 +19,7 @@
   position: relative;
   width: 100%;
   max-width: 400px;
-  height: clamp(400px, 70vh, 500px);
+  height: clamp(400px, 80vw, 500px);
   color: var(--f-color);
   border-radius: 50px 5px;
   overflow: hidden;
