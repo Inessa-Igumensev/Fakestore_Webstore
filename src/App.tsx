@@ -11,6 +11,8 @@ import { Contact } from "./Components/Contact";
 import Sidebar from "./Sidebar";
 import BlogOverview from "./Components/Blog";
 import BlogPostDetails from "./Components/BlogPostDetails";
+import Products from "./Components/Products";
+import User from "./Components/User";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
 
       <main>
         <Routes>
+          <Route path="/user" element={<User/>} />
+          <Route path="/products" element={<Products/>} />
           <Route path="/search" element={<SearchProducts />} />
           <Route path="/" element={<Start />} />
           <Route path="/info" element={<Info />} />

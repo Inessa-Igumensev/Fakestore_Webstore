@@ -14,14 +14,18 @@ export default function Login({ toggle }: PopUpProps) {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!username.trim() || !password.trim()) {
+      alert("Bitte alles ausfüllen");
+      return;
+    }
     axios
-      .post("http://localhost/fakestore_website_API/login.php", {
+      .post("http://localhost/fakestore_website_API/api/login.php", {
         username,
         password,
       })
+
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-
         alert("Login erfolgreich!");
         toggle();
       })
@@ -65,9 +69,7 @@ export default function Login({ toggle }: PopUpProps) {
             </form>
             <p className="toggleText">
               Noch nicht registriert?{" "}
-              <span className="goToSignIn"
-                onClick={() => setIsLogin(false)}
-              >
+              <span className="goToSignIn" onClick={() => setIsLogin(false)}>
                 Hier klicken
               </span>
             </p>
