@@ -5,41 +5,34 @@
 .contact {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
+  grid-template-rows: repeat(1, 1fr);
   border-top: 1px solid var(--borderColor);
   border-bottom: 1px solid var(--borderColor);
 
-   div {
-    padding-block: var(--space-xxl);
-    padding-inline: var(--space-2xl);
-    
+  & > div:not(:first-child) {
+    border-left: 1px solid var(--borderColor);
   }
+}
 
+.info-contact{
+  padding-block: var(--space-xl);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  h5 {
+.p-contacts{
+  flex-grow: 1;
+  h1{
     font-family: var(--ff-heading);
-    font-size: var(--fs-card-title);
+    font-size: var(--fs-subheading);
     font-weight: 300;
-    margin-block-end: var(--space-lg);
-
+    margin-block-end:var(--space-lg) ;
   }
 
- 
-  p {
-    font-family: var(--ff-body);
-    font-size: var(--fs-body);
-    padding-block:var(--space-xs);
+  p{
+    font-family:var(--ff-body);
+    padding-block: var(--space-xs);
   }
-}
 
-.contact > div:not(:first-child) {
-  border-left: 1px solid var(--borderColor);
-}
-
-.copyright {
-
-  text-align: center;
-  padding: 20px;
-  font-family: var(--ff-body);
-  font-size: var(--fs-body);
 }

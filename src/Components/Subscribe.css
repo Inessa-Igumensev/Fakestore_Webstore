@@ -29,7 +29,7 @@
 .subscribe-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr) auto;
-  row-gap: var(--space-md);
+  row-gap: var(--space-xs);
   width: clamp(320px, 80vw, 900px);
   margin: 0 auto;
   text-align: left;
