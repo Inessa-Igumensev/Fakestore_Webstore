@@ -4,7 +4,10 @@ import type { Userprop } from "./Registration";
 import { PiUserCircleDuotone } from "react-icons/pi";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { LiaUserEditSolid } from "react-icons/lia";
+import { RiDeleteBin6Line } from "react-icons/ri";
+
 import UserdataEdit from "./UserdataEdit";
+
 
 interface Userdata extends Userprop {
   created_at: string;
@@ -119,6 +122,14 @@ const handleEditClose = async () => {
               </div>
             </>
           )}
+        </div>
+        <div className = "deleteUser">
+          <button className="deletebtn">
+            <span className="delete-icon">
+              <RiDeleteBin6Line />
+            </span>
+            
+          </button>
         </div>
       </div>
     </div>
