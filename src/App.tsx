@@ -12,7 +12,7 @@ import Sidebar from "./Sidebar";
 import BlogOverview from "./Components/Blog";
 import BlogPostDetails from "./Components/BlogPostDetails";
 import Products from "./Components/Products";
-import User from "./Components/User";
+import User from "./Components/Userdata";
 
 function App() {
   return (

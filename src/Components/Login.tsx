@@ -31,6 +31,7 @@ export default function Login({ toggle }: PopUpProps) {
       })
       .catch((error) => {
         console.error("Fehler-Status:", error.response?.status);
+        console.error("Body:", error.response?.data);
         console.log(error.message);
       });
   };

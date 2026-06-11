@@ -1,0 +1,111 @@
+@import url("../Root.css");
+
+.userdata {
+  width: calc(100% - 160px - 160px);
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  margin-block-start: var(--space-xl);
+  justify-content: center;
+  align-items: center;
+}
+
+.myinfo-container {
+  border: 1px solid var(--borderColor);
+}
+
+.myinfo {
+  display: block;
+  margin-inline: var(--space-xl);
+  margin-block: var(--space-lg);
+
+  h1 {
+    text-align: center;
+    font-family: var(--ff-heading);
+    font-size: var(--fs-subheading);
+    padding-block-end: var(--space-md);
+  }
+}
+
+.myinfo-header {
+  display: flex;
+  margin-block-start:var(--space-xs) ;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.myinfo-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .myinfo-icon {
+    font-size: calc(var(--iconsize) * 1.5);
+    color: var(--borderColor);
+    margin-inline-end: var(--space-xs);
+  }
+
+  .myinfo-userName {
+    h2 {
+      font-family: var(--ff-heading);
+      font-size: var(--fs-subheading);
+      font-weight: 300;
+      padding-inline: var(--space-sm);
+    }
+  }
+}
+
+.update-container {
+  position: relative;
+}
+.myinfo-options {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--borderColor);
+  font-size: var(--iconsize);
+}
+
+.update-option {
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  right: auto;
+  top: auto;
+  margin-block-start: var(--space-xs);
+  padding-inline: var(--space-xs);
+  padding-block: var(--space-xs);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.updatebtn {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+  background-color: whitesmoke;
+  border: none;
+  cursor: pointer;
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  width: 100%;
+  padding-block: var(--space-sm);
+  padding-inline: var(--space-sm);
+}
+
+.useredit-icon {
+  font-size: var(--iconsize);
+  display: inline-flex;
+}
+
+.myinfo-body {
+  margin-block: var(--space-sm);
+   border-bottom: 1px solid rgb(210, 210, 210);
+
+  p {
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    padding-block: var(--space-sm);
+  }
+}

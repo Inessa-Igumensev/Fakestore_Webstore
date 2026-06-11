@@ -39,7 +39,7 @@ export default function Registration() {
     } catch (error: any) {
       console.error(
         "Fehler beim Erstellen:",
-        error.response?.data || error.message,
+        error.response?.data || error.message
       );
     }
   };
