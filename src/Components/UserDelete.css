@@ -1,0 +1,47 @@
+@import url("../Root.css");
+
+.deletebtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  border-radius:;
+  background-color: var(--f-color);
+  padding-inline: var(--space-md);
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  padding-block: var(--space-md);
+  width: fit-content;
+  margin: var(--space-lg) auto;
+
+  color: white;
+  user-select: none;
+  transition: transform 160ms ease-out;
+
+  .binIcon {
+    font-size: calc(var(--iconsize) * 0.8);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.hold-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  border-radius: inherit;
+  color: inherit;
+  background-color: #f54927;
+  clip-path: inset(0px 100% 0px 0px);
+  transition: clip-path 2s linear;
+}
+
+.deletebtn:active .hold-overlay {
+  clip-path: inset(0 0 0 0);
+}
+

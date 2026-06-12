@@ -47,7 +47,7 @@ export default function UserdataEdit({ onClose }: UserdataEditProps) {
         setuserPostal_code(user.postal_code ?? "");
         setUserMobile(user.mobile ?? "");
         setUserPassword("");
-      } catch (error: any) {
+      } catch (error:any) {
         console.error(
           "Fehler beim Laden der Userdaten:",
           error.response?.data || error.message

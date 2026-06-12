@@ -1,13 +1,11 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import type { Userprop } from "./Registration";
 import { PiUserCircleDuotone } from "react-icons/pi";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { LiaUserEditSolid } from "react-icons/lia";
-import { RiDeleteBin6Line } from "react-icons/ri";
-
+import DeleteUser from "./UserDelete";
 import UserdataEdit from "./UserdataEdit";
-
 
 interface Userdata extends Userprop {
   created_at: string;
@@ -23,7 +21,7 @@ export default function User() {
   const [showUpdateBTN, setShowUpdateBTN] = useState<boolean>(false);
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
 
-    const fetchMyUserData = async () => {
+  const fetchMyUserData = async () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -38,7 +36,7 @@ export default function User() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       setMyInfo(response.data);
@@ -53,13 +51,26 @@ export default function User() {
     fetchMyUserData();
   }, []);
 
-const handleEditClose = async () => {
-  setIsUpdate(false);
-  await fetchMyUserData();
-};
+  const handleEditClose = async () => {
+    setIsUpdate(false);
+    await fetchMyUserData();
+  };
 
-  if (loading) return <p>Lade Profildaten...</p>;
-  if (!myInfo) return <p>Keine Profildaten gefunden. Bitte anmelden.</p>;
+if (loading) {
+  return (
+    <div className="loading-container">
+      <p>Lade Profildaten...</p>
+    </div>
+  );
+}
+
+if (!myInfo) {
+  return (
+    <div className="loading-container">
+      <p>Keine Profildaten gefunden. Bitte anmelden.</p>
+    </div>
+  );
+}
 
   return (
     <div className="userdata">
@@ -122,14 +133,7 @@ const handleEditClose = async () => {
               </div>
             </>
           )}
-        </div>
-        <div className = "deleteUser">
-          <button className="deletebtn">
-            <span className="delete-icon">
-              <RiDeleteBin6Line />
-            </span>
-            
-          </button>
+          <DeleteUser/>
         </div>
       </div>
     </div>

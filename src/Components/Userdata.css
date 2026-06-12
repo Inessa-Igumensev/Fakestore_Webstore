@@ -1,4 +1,15 @@
 @import url("../Root.css");
+.loading-container{
+  min-height: calc(100vh - 80px);
+
+  display: grid;
+  place-items: center;
+}
+
+.loading-container p {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+}
 
 .userdata {
   width: calc(100% - 160px - 160px);
@@ -18,6 +29,7 @@
   display: block;
   margin-inline: var(--space-xl);
   margin-block: var(--space-lg);
+  
 
   h1 {
     text-align: center;
@@ -29,7 +41,7 @@
 
 .myinfo-header {
   display: flex;
-  margin-block-start:var(--space-xs) ;
+  margin-block-start: var(--space-xs);
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--borderColor);
@@ -101,7 +113,7 @@
 
 .myinfo-body {
   margin-block: var(--space-sm);
-   border-bottom: 1px solid rgb(210, 210, 210);
+  border-bottom: 1px solid rgb(210, 210, 210);
 
   p {
     font-family: var(--ff-body);
@@ -109,3 +121,4 @@
     padding-block: var(--space-sm);
   }
 }
+
