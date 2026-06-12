@@ -45,3 +45,14 @@
   clip-path: inset(0 0 0 0);
 }
 
+/*MDelete*/
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.del-container {
+  padding: 32px;
+}

@@ -12,7 +12,7 @@
 @import url(Components/Userdata.css);
 @import url(Components/UserdataEdit.css);
 @import url(Components/UserDelete.css);
-
+@import url(Components/Modal.css);
 
 /* CSS reset*/
 html, body, div, span, object, iframe,

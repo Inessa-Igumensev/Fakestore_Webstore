@@ -1,22 +1,25 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 import axios from "axios";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Modal from "./Modal";
 
 export default function DeleteUser() {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const [isHolding, setIsHolding] = useState<boolean>(false);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState<boolean>(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] =
+    useState<boolean>(false);
 
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const startDeleteHold = () => {
-    if (isDeleting) return;
+    if (isDeleting || timer.current) return;
 
     setIsHolding(true);
 
     timer.current = setTimeout(() => {
       setIsHolding(false);
       setShowDeleteConfirm(true);
+      timer.current = null;
     }, 2000);
   };
 
@@ -30,12 +33,10 @@ export default function DeleteUser() {
   };
 
   const closeConfirmation = () => {
+    if (isDeleting) return;
+
+    stopDeleteHold();
     setShowDeleteConfirm(false);
-    setIsHolding(false);
-    if (timer.current) {
-      clearTimeout(timer.current);
-      timer.current = null;
-    }
   };
 
   const handleDeleteAccount = async () => {
@@ -43,6 +44,7 @@ export default function DeleteUser() {
 
     try {
       setIsDeleting(true);
+
       await axios.delete(
         "http://localhost/fakestore_website_API/api/users.php",
         {
@@ -56,7 +58,10 @@ export default function DeleteUser() {
       alert("Dein Benutzerkonto wurde gelöscht.");
       window.location.href = "/";
     } catch (error) {
-      console.error("Fehler beim Löschen des Benutzerkontos:", error);
+      console.error(
+        "Fehler beim Löschen des Benutzerkontos:",
+        error,
+      );
     } finally {
       setIsDeleting(false);
       setShowDeleteConfirm(false);
@@ -82,43 +87,60 @@ export default function DeleteUser() {
         onPointerCancel={stopDeleteHold}
         disabled={isDeleting}
       >
-        <span aria-hidden="true" className="hold-overlay">
+        <span
+          aria-hidden="true"
+          className={`hold-overlay ${
+            isHolding ? "hold-overlay--active" : ""
+          }`}
+        >
           <RiDeleteBin6Line className="binIcon" />
-        Konto löschen
+          Konto löschen
         </span>
+
         <RiDeleteBin6Line className="binIcon" />
         Konto löschen
       </button>
-      {showDeleteConfirm && (
-        <div className="del-popUp" role="alert">
-          <button
-            className="del-close-btn"
-            type="button"
-            aria-label="Fenster schließen"
-            onClick={closeConfirmation}
-          >
-            &times;
-          </button>
-          <div className="del-container">
-            <p>Bist du dir sicher das du deinen Acount löschen willst ?</p>
-            <div className="del-buttons-group"></div>
+
+        <Modal
+        isOpen={showDeleteConfirm}
+        hasCloseBtn
+        closeButtonDisabled={isDeleting}
+        onClose={closeConfirmation}
+        ariaLabelledBy="delete-dialog-title"
+        ariaDescribedBy="delete-dialog-description"
+      >
+        <div
+          className="del-container"
+          onMouseDown={(event) => event.stopPropagation()}
+        >
+          <h2 id="delete-dialog-title">Konto löschen?</h2>
+
+          <p id="delete-dialog-description">
+            Bist du sicher, dass du dein Konto löschen möchtest?
+            Diese Aktion kann nicht rückgängig gemacht werden.
+          </p>
+
+          <div className="modal-buttons">
             <button
               className="yes-btn"
               type="button"
               onClick={handleDeleteAccount}
+              disabled={isDeleting}
             >
-              Ja
+              {isDeleting ? "Wird gelöscht..." : "Ja"}
             </button>
+
             <button
               type="button"
               className="no-btn"
               onClick={closeConfirmation}
+              disabled={isDeleting}
             >
               Nein
             </button>
           </div>
         </div>
-      )}
+      </Modal>
     </div>
   );
 }

@@ -16,17 +16,20 @@
   --fs-card-title: 1.375rem;
   --fs-body: 1rem;
 
-  
   --space-xs: 0.2rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 2rem;
   --space-xl: 3.75rem;
   --space-xxl: 5rem;
-  --space-2xl:5.5rem;
+  --space-2xl: 5.5rem;
 
   --lh-heading: 1.1rem;
   --lh-body: 1.5rem;
 
   --iconsize: 1.5lh;
+
+  --base-hue: 255deg;
+  --dialog-shadow-color: hsl(var(--base-hue) 55% 10% / 50%);
+  --dialog-backdrop-bg: hsl(var(--base-hue) 55% 10% / 50%);
 }
