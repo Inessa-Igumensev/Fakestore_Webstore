@@ -1,8 +1,9 @@
 @import url("../Root.css");
+@import url("../Keyframes.css");
+
 
 .signUpFeld {
   position: absolute;
-  background-color: white;
   inset: var(--space-sm);
   z-index: 1;
   border-radius: 45px 3px;
@@ -11,7 +12,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  animation: fadeIn 0.5s ease forwards;
 
+  
   h1 {
     font-size: var(--fs-heading);
     font-family: var(--ff-heading);
@@ -52,6 +55,7 @@
     }
   }
 }
+
 
 .signUp-scroller {
   overflow-y: auto;

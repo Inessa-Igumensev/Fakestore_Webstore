@@ -13,8 +13,19 @@
   padding-block: var(--space-md);
   animation: backdropFadeIn 0.5s ease forwards;
 }
-.login.login--closing{
-  animation:backdropFadeOut 0.5s ease forwards;
+
+.auth-surface{
+  position: absolute;
+  inset: var(--space-sm);
+  z-index: 1;
+  background-color: white;
+  border-radius: 45px 3px;
+  overflow: hidden;
+
+}
+
+.login.login--closing {
+  animation: backdropFadeOut 0.5s ease forwards;
 }
 
 .login-container {
@@ -27,11 +38,21 @@
   border-radius: 50px 5px;
   overflow: hidden;
   isolation: isolate;
-  animation:fadeIn 0.5s ease forwards ;
+  animation: fadeIn 0.5s ease forwards;
 }
 
-.login.login--closing .login-container{
+.login.login--closing .login-container {
   animation: fadeOut 0.5s ease forwards;
+}
+
+.auth-form{
+   width: 100%;
+  height: 100%;
+  animation: fadeIn 300ms ease forwards;
+}
+
+.auth-form--leaving{
+  animation: fadeOut 300ms ease forwards;
 }
 
 .login-container::before,
@@ -63,16 +84,14 @@
 }
 
 .signInForm {
-  position: absolute;
-  background-color: white;
-  inset: var(--space-sm);
-  z-index: 1;
-  border-radius: 45px 3px;
+  width: 100%;
+  height: 100%;
   padding-block: var(--space-xl);
   padding-inline: var(--space-lg);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
 }
 
 .signInFeld {
