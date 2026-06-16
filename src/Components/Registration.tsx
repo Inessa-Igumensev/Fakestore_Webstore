@@ -9,7 +9,11 @@ export interface Userprop {
   surname: string;
 }
 
-export default function Registration() {
+interface Registrationsprop{
+  registerSuccess:() => void;
+}
+
+export default function Registration({registerSuccess}: Registrationsprop) {
   const [userName, setUserName] = useState<string>("");
   const [userEmail, setEmail] = useState<string>("");
   const [userFirstname, setFirstname] = useState<string>("");
@@ -30,12 +34,10 @@ export default function Registration() {
           password: userPassword,
         },
       );
+     
       console.log("User Erfolgreich registiert", response.data);
-      setUserName("");
-      setEmail("");
-      setFirstname("");
-      setSurname("");
-      setUserPassword("");
+      registerSuccess();
+      
     } catch (error: any) {
       console.error(
         "Fehler beim Erstellen:",

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import type { Userprop } from "./Registration";
 import { PiUserCircleDuotone } from "react-icons/pi";
 import { BiDotsVerticalRounded } from "react-icons/bi";
@@ -56,21 +56,21 @@ export default function User() {
     await fetchMyUserData();
   };
 
-if (loading) {
-  return (
-    <div className="loading-container">
-      <p>Lade Profildaten...</p>
-    </div>
-  );
-}
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <p>Lade Profildaten...</p>
+      </div>
+    );
+  }
 
-if (!myInfo) {
-  return (
-    <div className="loading-container">
-      <p>Keine Profildaten gefunden. Bitte anmelden.</p>
-    </div>
-  );
-}
+  if (!myInfo) {
+    return (
+      <div className="loading-container">
+        <p>Keine Profildaten gefunden. Bitte anmelden.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="userdata">
@@ -131,9 +131,9 @@ if (!myInfo) {
                 <p>Mobil Nummer: {myInfo.mobile}</p>
                 <p>Erstellt am: {myInfo.created_at}</p>
               </div>
+              <DeleteUser />
             </>
           )}
-          <DeleteUser/>
         </div>
       </div>
     </div>

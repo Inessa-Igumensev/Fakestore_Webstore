@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-  border-radius:;
   background-color: var(--f-color);
   padding-inline: var(--space-md);
   font-family: var(--ff-body);
@@ -45,7 +44,7 @@
   clip-path: inset(0 0 0 0);
 }
 
-/*MDelete*/
+/*Delete*/
 .modal-buttons {
   display: flex;
   justify-content: flex-end;

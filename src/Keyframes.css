@@ -1,0 +1,43 @@
+@import url(Root.css);
+
+/*Keyframes for elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/*Keyframes for the backdrop psydeuo-element */
+@keyframes backdropFadeIn {
+  from {
+    background: hsl(0 0% 0% / 0%);
+  }
+  to {
+    background: hsl(0 0% 0% / 50%);
+  }
+}
+
+@keyframes backdropFadeOut {
+  from {
+    background: hsl(0 0% 0% / 50%);
+  }
+  to {
+    background: hsl(0 0% 0% / 0%);
+  }
+}

@@ -28,8 +28,4 @@
   --lh-body: 1.5rem;
 
   --iconsize: 1.5lh;
-
-  --base-hue: 255deg;
-  --dialog-shadow-color: hsl(var(--base-hue) 55% 10% / 50%);
-  --dialog-backdrop-bg: hsl(var(--base-hue) 55% 10% / 50%);
 }
