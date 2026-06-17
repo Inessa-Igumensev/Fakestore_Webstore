@@ -67,6 +67,7 @@ export default function Login({ toggle }: PopUpProps) {
       );
 
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("role", response.data.user.role);
       alert("Login erfolgreich!");
       closeLogin();
     } catch (error: any) {

@@ -7,7 +7,7 @@ import { LiaUserEditSolid } from "react-icons/lia";
 import DeleteUser from "./UserDelete";
 import UserdataEdit from "./UserdataEdit";
 
-interface Userdata extends Userprop {
+export interface Userdata extends Userprop {
   created_at: string;
   street: string;
   postal_code: number;

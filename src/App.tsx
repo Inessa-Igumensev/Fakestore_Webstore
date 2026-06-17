@@ -13,6 +13,7 @@ import BlogOverview from "./Components/Blog";
 import BlogPostDetails from "./Components/BlogPostDetails";
 import Products from "./Components/Products";
 import User from "./Components/Userdata";
+import Admin from "./Components/Admin";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/user" element={<User/>} />
+          <Route path="/admin" element= {<Admin/>} />
           <Route path="/products" element={<Products/>} />
           <Route path="/search" element={<SearchProducts />} />
           <Route path="/" element={<Start />} />

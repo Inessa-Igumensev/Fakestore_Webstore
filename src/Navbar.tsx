@@ -6,12 +6,14 @@ import { useState } from "react";
 import Login from "./Components/Login";
 
 export const Navbar = () => {
-  const [ seen,setSeen] = useState<boolean>(false);
+  const [seen, setSeen] = useState<boolean>(false);
 
-    function togglePop () {
-        setSeen(!seen);
-    };
+  function togglePop() {
+    setSeen(!seen);
+  }
 
+  const role = localStorage.getItem("role");
+  const userPath = role === "admin" ? "/admin" : "/user";
 
   return (
     <div className="navbar">
@@ -19,7 +21,7 @@ export const Navbar = () => {
         <button className="searchProductsBtn">
           <span className=" iconSearch">
             {<FaMagnifyingGlass />}
-            <span>Suchen...</span>
+            <span> Suchen...</span>
           </span>
         </button>
       </Link>
@@ -40,11 +42,13 @@ export const Navbar = () => {
         <Link to="/contact">Kontakt</Link>
       </div>
       <div className="nav-user-cart">
-        <Link to="/user">
+        <Link to={userPath}>
           <span className="iconUser"> {<LuCircleUserRound />}</span>
         </Link>
-          <button className="loginButton" onClick={togglePop}>Anmelden</button>
-          {seen ? <Login toggle={togglePop} /> : null}
+        <button className="loginButton" onClick={togglePop}>
+          Anmelden
+        </button>
+        {seen ? <Login toggle={togglePop} /> : null}
         <Link to="/cart">
           <span className="iconCart">{<PiShoppingCartBold />}</span>
         </Link>

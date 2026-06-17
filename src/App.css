@@ -1,11 +1,11 @@
-@import url("./Components/Header.css");
-@import url("./Components/Navbar.css");
-@import url("./Components/Start.css");
-@import url("./Components/Sidebar.css");
-@import url("./Components/Subscribe.css");
-@import url("./Components/Contact.css");
-@import url("./Components/Info.css");
-@import url("./Components/Blog.css");
+@import url(Components/Header.css);
+@import url(Components/Navbar.css);
+@import url(Components/Start.css);
+@import url(Components/Sidebar.css);
+@import url(Components/Subscribe.css);
+@import url(Components/Contact.css);
+@import url(Components/Info.css);
+@import url(Components/Blog.css);
 @import url(Components/BlogPostDetails.css);
 @import url(Components/Login.css);
 @import url(Components/Registration.css);
@@ -13,6 +13,7 @@
 @import url(Components/UserdataEdit.css);
 @import url(Components/UserDelete.css);
 @import url(Components/Modal.css);
+@import url(Components/Admin.css);
 
 /* CSS reset*/
 html, body, div, span, object, iframe,
