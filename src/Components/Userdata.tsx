@@ -95,29 +95,37 @@ export default function User() {
 
                 <div className="update-container">
                   <button
+                    type="button"
                     className="myinfo-options"
                     onClick={() => setShowUpdateBTN((prev) => !prev)}
                     aria-expanded={showUpdateBTN}
+                    aria-controls="profile-update-menu"
                   >
                     <BiDotsVerticalRounded />
                   </button>
 
-                  {showUpdateBTN && (
-                    <div className="update-option">
-                      <button
-                        className="updatebtn"
-                        onClick={() => {
-                          setIsUpdate(true);
-                          setShowUpdateBTN(false);
-                        }}
-                      >
-                        <span className="useredit-icon" aria-hidden="true">
-                          <LiaUserEditSolid />
-                        </span>
-                        Profil Bearbeiten
-                      </button>
-                    </div>
-                  )}
+                  <div
+                    id="profile-update-menu"
+                    className={`update-option ${
+                      showUpdateBTN ? "update-option--open" : ""
+                    }`}
+                    aria-hidden={!showUpdateBTN}
+                  >
+                    <button
+                      type="button"
+                      className="updatebtn"
+                      tabIndex={showUpdateBTN ? 0 : -1}
+                      onClick={() => {
+                        setIsUpdate(true);
+                        setShowUpdateBTN(false);
+                      }}
+                    >
+                      <span className="useredit-icon" aria-hidden="true">
+                        <LiaUserEditSolid />
+                      </span>
+                      Profil bearbeiten
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -131,6 +139,7 @@ export default function User() {
                 <p>Mobil Nummer: {myInfo.mobile}</p>
                 <p>Erstellt am: {myInfo.created_at}</p>
               </div>
+
               <DeleteUser />
             </>
           )}

@@ -45,13 +45,64 @@
 }
 
 /*Delete*/
-.modal-buttons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 24px;
-}
 
 .del-container {
-  padding: 32px;
+  
+  margin-block: var(--space-lg);
+  margin-inline: var(--space-lg);
+
+  h2 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-card-title);
+    padding-block-end: var(--space-md);
+    text-align: center;
+  }
+
+  p {
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    padding-block: var(--space-xs);
+  }
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  margin-block: var(--space-md);
+  gap: 3px;
+
+  &::after{
+  content: "";
+  clear: both;
+  display: table;
+  }
+}
+
+.yes-btn,
+.no-btn {
+  float: left;
+  width: 50%;
+  opacity: 0.9;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.yes-btn {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  padding-block: var(--space-md);
+  background-color:  #f54927;
+}
+
+.no-btn {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  padding-block: var(--space-md);
+  background-color:var(--borderColor);
+  color: white;
 }
