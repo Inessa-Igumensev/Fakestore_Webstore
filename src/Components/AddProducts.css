@@ -1,0 +1,32 @@
+@import url("../Root.css");
+
+.add-product {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+
+ label {
+    font-size: var(--fs-card-title);
+    display: block;
+    margin-block-start: var(--space-md);
+  }
+
+  input:not([type="submit"]):not([type="button"]) {
+    &:focus {
+      border: 2px solid var(--borderColor);
+    }
+
+    &::placeholder {
+      font-size: var(--fs-body);
+      font-family: var(--ff-body);
+      color: var(--f-color);
+      opacity: 0.8;
+    }
+  }
+}

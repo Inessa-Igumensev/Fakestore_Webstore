@@ -112,7 +112,7 @@ export default function Admin() {
         </Collapsible>
         <hr />
 
-        <Collapsible label="Ein Produkt hinzufügen">
+        <Collapsible label="Produkt hinzufügen">
           <AddProduct />
         </Collapsible>
         <hr />
