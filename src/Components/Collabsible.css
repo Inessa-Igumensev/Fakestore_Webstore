@@ -1,0 +1,32 @@
+@import url("../Root.css");
+.collapsible {
+  width: 100%;
+  margin-inline: auto;
+
+}
+.toggleBtn{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.toggleBtn::after {
+
+  content: "+";
+  font-size: 1.2rem;
+}
+
+.collapsible.open .toggleBtn::after {
+  content: "−";
+}
+
+.content-parent {
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.content {
+  padding: 1rem;
+}
