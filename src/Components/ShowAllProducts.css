@@ -1,0 +1,161 @@
+@import url("../Root.css");
+
+.all-products {
+  color: var(--f-color);
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+
+}
+
+.product-table {
+  width: 100%;
+  overflow-x: auto;
+  color: #fff;
+  container-type: inline-size;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #3f5061;
+  }
+
+  thead {
+    display: none;
+  }
+
+  table,
+  tbody,
+  tfoot,
+  tr,
+  td {
+    display: block;
+  }
+
+  tr {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #5f7284;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.4rem 0.75rem;
+    text-align: right;
+    color: #fff;
+
+    &::before {
+      content: attr(data-title);
+      display: inline-block;
+      color: #dce8ef;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-align: left;
+    }
+  }
+
+  th {
+    text-align: left;
+    font-weight: 700;
+  }
+
+  tfoot th {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    color: #dce8ef;
+  }
+}
+
+.product-Update-Btn,
+.product-Delte-Btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--subtle);
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-Delte-Btn {
+  background-color: var(--poppy);
+}
+
+.product-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 4px;
+}
+
+@container (min-width: 720px) {
+  .product-table {
+    padding: 0 1rem 1rem;
+
+    table {
+      display: table;
+      width: 100%;
+      background-color: #3f5061;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    tbody {
+      display: table-row-group;
+    }
+
+    tfoot {
+      display: table-footer-group;
+    }
+
+    tr {
+      display: table-row;
+      padding: 0;
+      border-bottom: none;
+    }
+
+    th,
+    td {
+      display: table-cell;
+      padding: 12px;
+      border: 1px solid #5f7284;
+      vertical-align: middle;
+    }
+
+    thead th {
+      background-color: #354555;
+      color: #fff;
+    }
+
+    td {
+      text-align: left;
+      color: #fff;
+
+      &::before {
+        display: none;
+        content: "";
+      }
+    }
+
+    tbody tr:nth-child(odd) td {
+      background-color: #3f5061;
+    }
+
+    tbody tr:nth-child(even) td {
+      background-color: #4b5f72;
+    }
+
+    tfoot th {
+      display: table-cell;
+      text-align: center;
+      background-color: #3f5061;
+      color: #dce8ef;
+      border: 1px solid #5f7284;
+    }
+  }
+}

@@ -19,7 +19,7 @@ export default function Collapsible(props: CollapsibleProps) {
     } else {
       setHeight(0);
     }
-  }, [open]);
+  }, [open, props.children]);
 
   const toggle = () => {
     setOpen((prev) => !prev);

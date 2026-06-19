@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import placeHolderPic from "../assets/Placeholder.png";
+import Sidebar from "../Sidebar";
 
 const collections = [
   { slug: "notebooks", title: "Notebooks", img: placeHolderPic },
@@ -11,6 +12,8 @@ const collections = [
 export default function Start() {
   return (
     <div className="start-grid">
+      <Sidebar />
+
       <h2 className="our-collection">Unsere Kollektionen</h2>
       {collections.map((item) => (
         <Link

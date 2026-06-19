@@ -1,18 +1,35 @@
 @import url("../Root.css");
 
 .admin {
-  width: calc(100% - 160px);
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+
   flex-direction: row;
-  margin-inline: auto;
   margin-block: var(--space-xl);
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .admin-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  width: clamp(14rem, 25vw, 18rem);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .admin {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .admin-container {
+    width: min(100%, 18rem);
+  }
+
+  .collabsible-set {
+    width: 100%;
+  }
 }
 
 .myAdmin-info {
@@ -22,7 +39,6 @@
   h1 {
     font-family: var(--ff-heading);
     font-size: var(--fs-card-title);
-
     text-align: center;
   }
 }
@@ -71,4 +87,7 @@
   }
 }
 
-
+.collabsible-set {
+  flex: 1;
+  min-width: 0;
+}

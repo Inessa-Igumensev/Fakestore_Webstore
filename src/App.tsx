@@ -8,7 +8,6 @@ import { Navbar } from "./Navbar";
 import { Logo } from "./Components/Logo";
 import { Subscribe } from "./Components/Subscribe";
 import { Contact } from "./Components/Contact";
-import Sidebar from "./Sidebar";
 import BlogOverview from "./Components/Blog";
 import BlogPostDetails from "./Components/BlogPostDetails";
 import Products from "./Components/Products";
@@ -17,34 +16,36 @@ import Admin from "./Components/Admin";
 
 function App() {
   return (
-    <div className="container">
-      <div className="header">
-        <ShippingInfo />
-        <Logo />
-        <Navbar />
-      </div>
-      <Sidebar />
+      <div className="container">
+        <div className="header">
+          <ShippingInfo />
+          <Logo />
+          <Navbar />
+        </div>
+        <div className="body-main">
+          <main>
+            <Routes>
+              <Route path="/user" element={<User />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/search" element={<SearchProducts />} />
+              <Route path="/" element={<Start />} />
+              <Route path="/info" element={<Info />} />
+              <Route path="/blog" element={<BlogOverview />} />
+              <Route path="/blog/:id" element={<BlogPostDetails />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+        </div>
 
-      <main>
-        <Routes>
-          <Route path="/user" element={<User/>} />
-          <Route path="/admin" element= {<Admin/>} />
-          <Route path="/products" element={<Products/>} />
-          <Route path="/search" element={<SearchProducts />} />
-          <Route path="/" element={<Start />} />
-          <Route path="/info" element={<Info />} />
-          <Route path="/blog" element={<BlogOverview />} />
-          <Route path="/blog/:id" element={<BlogPostDetails />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-
-      <div className="footer">
+        <div className="footer">
           <Subscribe />
-          <Contact />
+          <div id="kontakt">
+            <Contact />
+          </div>
           <div className="copyright">© 2035 Beispiel</div>
+        </div>
       </div>
-    </div>
   );
 }
 

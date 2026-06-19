@@ -8,6 +8,7 @@ import ShowAllUsers from "./ShowAllUsers";
 import defaultPic from "../assets/defaultProfil.jpg";
 import Collapsible from "./Collapsible";
 import AddProduct from "./AddProduct";
+import ShowAllProducts from "./ShowAllProducts";
 
 export default function Admin() {
   const [myInfo, setMyInfo] = useState<Userdata | null>(null);
@@ -103,12 +104,7 @@ export default function Admin() {
         <hr />
 
         <Collapsible label="Alle Produkte">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat
-          </p>
+          <ShowAllProducts />
         </Collapsible>
         <hr />
 

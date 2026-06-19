@@ -1,7 +1,6 @@
 @import url("../Root.css");
 
 .blog-post-details {
-  width: calc(100% - 160px - 160px);
   display: flex;
   flex-direction: column;
   gap: 40px;

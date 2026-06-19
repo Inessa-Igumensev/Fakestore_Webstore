@@ -21,7 +21,7 @@ export const Navbar = () => {
         <button className="searchProductsBtn">
           <span className=" iconSearch">
             {<FaMagnifyingGlass />}
-            <span> Suchen...</span>
+            <span> Suchen ...</span>
           </span>
         </button>
       </Link>
@@ -39,7 +39,7 @@ export const Navbar = () => {
         </div>
         <Link to="/info">Info</Link>
         <Link to="/blog">Blog</Link>
-        <Link to="/contact">Kontakt</Link>
+        <a href="#kontakt">Kontakt</a>
       </div>
       <div className="nav-user-cart">
         <Link to={userPath}>

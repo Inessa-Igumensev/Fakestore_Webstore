@@ -1,20 +1,16 @@
-@import url("Header.css");
 @import url("../Root.css");
 
 .navbar {
+  width: 100%;
   grid-row-start: 4;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
   cursor: pointer;
-  width: calc(100% - 160px);
   font-family: var(--ff-body);
   transition: color 0.3s ease;
-  gap: 0;
   overflow: visible;
-  height: 60px;
+  height: var(--space-xxl);
   border-top: 1px solid var(--borderColor);
   border-bottom: 1px solid var(--borderColor);
 
@@ -23,7 +19,7 @@
     text-decoration: none;
     text-size-adjust: 100%;
     color: var(--secondaryBackground);
-    font-size: 16px;
+    font-size: var(--fs-body);
 
     &:hover {
       color: gray;
@@ -38,20 +34,24 @@
 }
 
 .searchProductsBtn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
   cursor: pointer;
-  border: none;
+  margin-inline: var(--space-sm);
   border-bottom: 1px solid var(--borderColor);
-  background-color: var(--background);
-  box-sizing: border-box;
-  padding-block: 1px;
-  padding-inline: 6px;
   height: 100%;
+  white-space: nowrap;
+  overflow: hidden;
   transition: width 0.4s ease-in-out;
 
   span {
-    font-size: 16px;
+    font-size: var(--fs-body);
     font-family: var(--ff-body);
-    letter-spacing: 0em;
+    padding-block-end: var(--space-sm);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   iconSearch {
@@ -60,23 +60,26 @@
 
   &:hover {
     color: gray;
+          transform: translateY(4px);
+
   }
+
+
 }
 
 .nav-middle {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  flex: 2;
+  gap: var(--space-sm);
+  flex: 1;
 
   a:not(:last-child):not(.dropdown-content a)::after {
     content: "|";
     color: var(--borderColor);
-    margin-left: 15px;
+    margin-left: var(--space-sm);
     font-weight: 300;
   }
-
 }
 
 /* Dropdown Styling */
@@ -98,7 +101,7 @@
     float: none;
     color: var(--secondaryBackground);
     text-decoration: none;
-    padding-inline: 10px;
+    padding-inline: var(--space-xs);
     padding-block-start: 0.5em;
     padding-block-end: 0.5em;
     white-space: nowrap;
@@ -123,7 +126,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 15px;
+  gap: var(--space-sm);
   flex: 1;
 }
 
@@ -141,4 +144,8 @@
 .iconUser,
 .iconCart {
   font-size: var(--iconsize);
+}
+
+.iconCart {
+  margin-inline-end: var(--space-sm);
 }

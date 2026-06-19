@@ -1,9 +1,10 @@
 @import url("../Root.css");
-.loading-container{
-  min-height: calc(100vh - 80px);
 
+.loading-container{
   display: grid;
   place-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .loading-container p {
@@ -12,11 +13,11 @@
 }
 
 .userdata {
-  width: calc(100% - 160px - 160px);
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-inline: auto;
-  margin-block-start: var(--space-xl);
+  margin-block: var(--space-xl);
   justify-content: center;
   align-items: center;
 }

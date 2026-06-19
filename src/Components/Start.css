@@ -4,7 +4,6 @@
 .start-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  width: calc(100% - 160px);
   column-gap: var(--space-md);
   row-gap: var(--space-lg);
   margin-inline: auto;
@@ -15,17 +14,17 @@
 .whats-new {
   grid-column: 1/-1;
   text-align: center;
+  margin-block-end: var(--space-md);
   font-family: var(--ff-heading);
-  font-size: var(--fs-heading);
+  font-size: var(--fs-subheading);
   font-weight: 300;
   line-height: var(--lh-heading);
   letter-spacing: 0.1em;
   line-height: var(--lh-heading);
-  margin-block-end: var(--space-lg);
 }
 
 .whats-new {
-  margin-block-start: var(--space-2xl);
+  margin-block-start: var(--space-xxl);
 }
 
 /* -------- Kollektions-Karten -------- */

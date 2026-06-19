@@ -1,43 +1,45 @@
 @import url("../Root.css");
-@import url("./Footer.css");
 
 .subscribe-content {
+  width: 100%;
   text-align: center;
   border-top: 1px solid var(--borderColor);
-  margin-block-end: var(--space-xl);
-  margin-block-start: var(--space-xl);
 }
 
 .subscribe-container {
-  margin-block-start: var(--space-2xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-block: var(--space-xl);
   margin-inline: var(--space-2xl);
+  
 
   h3 {
     font-family: var(--ff-heading);
-    font-size: 1.5rem;
+    font-size: calc(var(--fs-card-title)*0.9);
     font-weight: 300;
-    margin-block-end: var(--space-sm);
-    line-height: var(--lh-body);
   }
 
   p {
     font-family: var(--ff-body);
+    font-size: calc(var(--fs-body)*0.8);
     padding-block: var(--space-md);
+    
   }
 }
 
 .subscribe-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr) auto;
-  row-gap: var(--space-xs);
-  width: clamp(320px, 80vw, 900px);
-  margin: 0 auto;
+  width: clamp(320px, 90vw, 700px);
   text-align: left;
 
   label {
     grid-column: 1/2;
     grid-row: 1;
     font-family: var(--ff-body);
+    font-size: calc(var(--fs-body)*0.8);
     padding-block: var(--space-sm);
   }
 
@@ -46,13 +48,12 @@
     grid-row: 2;
     width: 100%;
     outline: none;
-    padding-block: 0.7rem;
+    padding-block: 0.5rem;
     padding-inline: var(--space-sm);
     background-color: var(--background);
     border: 1px solid var(--borderColor);
-    font-size: var(--fs-body);
+    font-size: calc(var(--fs-body)*0.8);
     font-family: var(--ff-body);
-    box-sizing: border-box;
   }
 
   .abo-newsletter {
@@ -65,7 +66,7 @@
     label {
       font-family: var(--ff-heading);
       font-weight: 300;
-      padding-inline: var(--space-xs);
+      font-size: calc(var(--fs-body)*0.8);
     }
   }
 
@@ -75,12 +76,12 @@
     font-family: var(--ff-body);
     color: #ffffff;
     cursor: pointer;
-    font-size: var(--fs-body);
+    font-size: calc(var(--fs-body)*0.8);
     background-color: var(--f-color);
-    padding-block: 0.7rem;
+    padding-block: 0.6rem;
     padding-inline: var(--space-xxl);
     border: 1px solid var(--borderColor);
-    margin-block-start: var(--space-md);
+    margin-block-start: var(--space-sm);
     transition-duration: 0.4s;
 
     &:hover {

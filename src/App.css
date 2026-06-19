@@ -16,80 +16,149 @@
 @import url(Components/Admin.css);
 @import url(Components/Collabsible.css);
 @import url(Components/AddProducts.css);
-
+@import url(Components/Container.css);
+@import url(Components/ShowAllProducts.css);
 /* CSS reset*/
-html, body, div, span, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    a, abbr, address, cite, code,
-    del, dfn, em, img, ins, kbd, q, samp,
-    small, strong, sub, sup, var,
-    b, u, i,
-    dl, dt, dd, ol, ul, li,
-    fieldset, form, label, legend,
-    table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, figcaption, figure,
-    footer, header, hgroup, main, menu, nav, section, summary,
-    time, mark, audio, video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        vertical-align: baseline;
-        background: transparent;
-    }
-     
-    article, aside, details, figcaption, figure,
-    footer, header, hgroup, main, menu, nav, section {
-        display: block;
-    }
-     
-    *[hidden] {
-        display: none;
-    }
-     
-    html {
-        box-sizing: border-box;
-    }
-     
-    *, *:before, *:after {
-      box-sizing: inherit;
-    }
-     
-    body {
-        line-height: 1;
-    }
-     
-    ol ul {
-        list-style: none;
-    }
-     
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-     
-    img, video {
-        max-width: 100%;
-    }
-     
-    img {
-        border-style: none;
-    }
-     
-    button, input, optgroup, select, textarea {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        vertical-align: middle;
-        background: transparent;
-    }
-   
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+u,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
 
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
 
+*[hidden] {
+  display: none;
+}
 
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
+body {
+  line-height: 1;
+}
 
+ol ul {
+  list-style: none;
+}
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
+img,
+video {
+  max-width: 100%;
+}
 
+img {
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: middle;
+  background: transparent;
+}

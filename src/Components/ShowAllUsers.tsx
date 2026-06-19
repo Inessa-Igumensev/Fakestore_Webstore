@@ -9,7 +9,8 @@ export interface AllUserData extends Userdata {
 
 export default function ShowAllUsers() {
 const [users, setUsers] = useState<AllUserData[]>([]);
-  const fetchAllUsers = async () => {
+  
+const fetchAllUsers = async () => {
     try {
       const response = await axios.get(
         "http://localhost/fakestore_website_API/api/users.php",
