@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 export interface ProductProp {
-  id?: number;
+  product_id: number;
   category: string;
   label: string;
   description: string;
@@ -17,24 +17,30 @@ export default function AddProduct() {
   const [description, setDescription] = useState<string>("");
   const [stock, setStock] = useState<string>("");
   const [price, setPrice] = useState<string>("");
-  const [image, setImage] = useState<string>("");
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const handleProductSubmit = async (
-    event: React.FormEvent<HTMLFormElement>,
+    event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
 
+    if (!imageFile) {
+      console.error("Bitte ein Bild auswählen");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("category", category);
+    formData.append("label", label);
+    formData.append("description", description);
+    formData.append("stock", stock);
+    formData.append("price", price);
+    formData.append("image", imageFile);
+
     try {
-      const response = await axios.post<ProductProp>(
+      const response = await axios.post(
         "http://localhost/fakestore_website_API/api/products.php",
-        {
-          category: category,
-          label: label,
-          description: description,
-          stock: stock,
-          price: price,
-          image: image,
-        },
+        formData
       );
 
       setCategory("");
@@ -42,13 +48,15 @@ export default function AddProduct() {
       setDescription("");
       setStock("");
       setPrice("");
-      setImage("");
+      setImageFile(null);
 
-      console.log("Produkt Erfolgreich hinzugefügt", response.data);
+      event.currentTarget.reset();
+
+      console.log("Produkt erfolgreich hinzugefügt", response.data);
     } catch (error: any) {
       console.error(
         "Fehler beim Erstellen:",
-        error.response?.data || error.message,
+        error.response?.data || error.message
       );
     }
   };
@@ -101,6 +109,7 @@ export default function AddProduct() {
           <input
             id="price"
             type="number"
+            step="0.01"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
@@ -111,8 +120,11 @@ export default function AddProduct() {
           <input
             id="image"
             type="file"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files?.[0] || null;
+              setImageFile(file);
+            }}
           />
         </div>
 

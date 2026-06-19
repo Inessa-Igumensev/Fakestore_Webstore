@@ -42,17 +42,18 @@ export default function ShowAllProducts() {
 
           <tbody>
             {products.map((product) => (
-              <tr key={product.id}>
-                <td data-title="ID">{product.id}</td>
+              <tr key={product.product_id}>
+                <td data-title="ID">{product.product_id}</td>
                 <td data-title="Kategorie">{product.category}</td>
                 <td data-title="Name">{product.label}</td>
                 <td data-title="Beschreibung">{product.description}</td>
                 <td data-title="Anzahl">{product.stock}</td>
-                <td data-title="Preis">{product.price}</td>
+                <td data-title="Preis">{Number(product.price).toFixed(2)}</td>
+
                 <td data-title="Bild">
                   {product.image ? (
                     <img
-                      src={product.image}
+                      src={`http://localhost/fakestore_website_API/${product.image}`}
                       alt={product.label}
                       className="product-image"
                     />
@@ -60,9 +61,11 @@ export default function ShowAllProducts() {
                     "Kein Bild"
                   )}
                 </td>
+
                 <td data-title="Bearbeiten">
                   <button className="product-Update-Btn">Bearbeiten</button>
                 </td>
+
                 <td data-title="Löschen">
                   <button className="product-Delte-Btn">Löschen</button>
                 </td>
