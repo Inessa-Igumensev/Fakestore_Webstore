@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api";
 
 export interface Userprop {
   id?: number;
@@ -24,8 +24,8 @@ export default function Registration({registerSuccess}: Registrationsprop) {
     event.preventDefault();
 
     try {
-      const response = await axios.post<Userprop>(
-        "http://localhost/fakestore_website_API/api/users.php",
+      const response = await api.post<Userprop>(
+        "/users.php",
         {
           username: userName,
           firstname: userFirstname,

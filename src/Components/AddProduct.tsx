@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api";
 
 export interface ProductProp {
   product_id: number;
@@ -38,8 +38,8 @@ export default function AddProduct() {
     formData.append("image", imageFile);
 
     try {
-      const response = await axios.post(
-        "http://localhost/fakestore_website_API/api/products.php",
+      const response = await api.post(
+        "/products.php",
         formData
       );
 

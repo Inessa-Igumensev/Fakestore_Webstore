@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Registration from "./Registration";
-import axios from "axios";
+import api from "../api";
+
 
 export interface PopUpProps {
   toggle: () => void;
@@ -58,8 +59,8 @@ export default function Login({ toggle }: PopUpProps) {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost/fakestore_website_API/api/login.php",
+      const response = await api.post(
+        "login.php",
         {
           username,
           password,

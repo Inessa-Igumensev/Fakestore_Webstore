@@ -1,6 +1,5 @@
 import { Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import type { Userdata } from "./Userdata";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { TbMoodEdit } from "react-icons/tb";
@@ -9,6 +8,8 @@ import defaultPic from "../assets/defaultProfil.jpg";
 import Collapsible from "./Collapsible";
 import AddProduct from "./AddProduct";
 import ShowAllProducts from "./ShowAllProducts";
+import api from "../api";
+
 
 export default function Admin() {
   const [myInfo, setMyInfo] = useState<Userdata | null>(null);
@@ -24,8 +25,8 @@ export default function Admin() {
     }
 
     try {
-      const response = await axios.get(
-        "http://localhost/fakestore_website_API/api/users.php",
+      const response = await api.get(
+        "/users.php",
         {
           headers: {
             Authorization: `Bearer ${token}`,

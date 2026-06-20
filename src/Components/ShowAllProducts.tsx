@@ -1,14 +1,15 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import type { ProductProp } from "./AddProduct";
+import api from "../api";
+
 
 export default function ShowAllProducts() {
   const [products, setProducts] = useState<ProductProp[]>([]);
 
   const fetchAllProducts = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost/fakestore_website_API/api/products.php",
+      const response = await api.get(
+        "/products.php",
       );
 
       setProducts(response.data);

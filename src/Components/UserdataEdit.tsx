@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
-import axios from "axios";
+import api from "../api";
+
 
 type UserdataEditProps = {
   onClose: () => void;
@@ -27,8 +28,8 @@ export default function UserdataEdit({ onClose }: UserdataEditProps) {
           return;
         }
 
-        const response = await axios.get(
-          "http://localhost/fakestore_website_API/api/users.php",
+        const response = await api.get(
+          "/users.php",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -81,8 +82,8 @@ export default function UserdataEdit({ onClose }: UserdataEditProps) {
         return;
       }
 
-      const response = await axios.patch(
-        "http://localhost/fakestore_website_API/api/users.php",
+      const response = await api.patch(
+        "/users.php",
         payload,
         {
           headers: {

@@ -1,7 +1,8 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
-import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
+import api from "../api";
+
 
 export default function DeleteUser() {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
@@ -45,8 +46,8 @@ export default function DeleteUser() {
     try {
       setIsDeleting(true);
 
-      await axios.delete(
-        "http://localhost/fakestore_website_API/api/users.php",
+      await api.delete(
+        "/users.php",
         {
           headers: {
             Authorization: `Bearer ${token}`,

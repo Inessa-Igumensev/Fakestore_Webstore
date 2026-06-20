@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import type { Userprop } from "./Registration";
 import { PiUserCircleDuotone } from "react-icons/pi";
@@ -6,6 +5,8 @@ import { BiDotsVerticalRounded } from "react-icons/bi";
 import { LiaUserEditSolid } from "react-icons/lia";
 import DeleteUser from "./UserDelete";
 import UserdataEdit from "./UserdataEdit";
+import api from "../api";
+
 
 export interface Userdata extends Userprop {
   created_at: string;
@@ -30,8 +31,8 @@ export default function User() {
     }
 
     try {
-      const response = await axios.get(
-        "http://localhost/fakestore_website_API/api/users.php",
+      const response = await api.get(
+        "/users.php",
         {
           headers: {
             Authorization: `Bearer ${token}`,

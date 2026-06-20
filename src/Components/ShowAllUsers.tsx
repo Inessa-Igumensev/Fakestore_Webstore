@@ -1,5 +1,5 @@
 import SearchUserByID from "./SearchUserByID.tsx";
-import axios from "axios";
+import api from "../api";
 import { useState, useEffect } from "react";
 import type { Userdata } from "./Userdata.tsx";
 
@@ -12,8 +12,8 @@ const [users, setUsers] = useState<AllUserData[]>([]);
   
 const fetchAllUsers = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost/fakestore_website_API/api/users.php",
+      const response = await api.get(
+        "/users.php",
       );
 
       setUsers(response.data);
