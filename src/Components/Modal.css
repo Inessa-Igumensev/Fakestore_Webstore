@@ -1,12 +1,13 @@
 @import url("../Root.css");
 
 .modal-dialog {
-  position: relative;
+  position: fixed;
   width: min(90%, 500px);
   padding: 0;
   border: none;
   border-radius: 3px;
   overflow: visible;
+  z-index: 99999;
 
   transition:
     opacity 0.4s cubic-bezier(0.4, 1.6, 0.4, 0.8),
@@ -26,6 +27,7 @@
   }
 
   &[open] {
+    display: block;
     opacity: 1;
     scale: 1;
   }
