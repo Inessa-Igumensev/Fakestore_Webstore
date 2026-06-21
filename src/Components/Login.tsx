@@ -59,8 +59,8 @@ export default function Login({ toggle }: PopUpProps) {
     }
 
     try {
-      const response = await api.post(
-        "login.php",
+      const response = await api.post
+      ("/login.php",
         {
           username,
           password,

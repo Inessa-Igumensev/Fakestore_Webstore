@@ -28,7 +28,7 @@ export default function BlogOverview() {
                   <div className="icon-blog-post">
                     <PiUserCircleDuotone />
                   </div>
-      <div className="blog-metadates">
+                   <div className="blog-metadates">
   <span className="userName">Admin</span>
   <div className="blog-time-row">
     <div className="date-of-creation">

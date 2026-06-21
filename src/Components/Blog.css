@@ -20,8 +20,14 @@
 
 .blog-post-container {
   display: flex;
-  flex-direction: row;
-  gap: 30px;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .blog-post-container {
+flex-direction: row;  }
+  
 }
 
 .blog-post-link {
@@ -36,17 +42,19 @@
   border: 1px solid var(--borderColor);
   display: flex;
   flex-direction: column;
+  gap: var(--space-md);
 }
 
 .picture-post img {
   border-bottom: 1px solid lightgray;
-  object-fit: cover;
+  aspect-ratio: 2/1;
+  object-fit: contain;
   width: 100%;
-  display: block;
+  display: inline-block;
 }
 
 .user-blog-post {
-  margin-block: var(--space-sm);
+  width: 100%;
   margin-inline: var(--space-xs);
   display: flex;
   flex-direction: column;
@@ -62,8 +70,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 1005;
-  gap: 5px;
+  gap: var(--space-xs);
 }
 
 .icon-blog-post {
@@ -84,14 +91,15 @@ flex-grow:1 ;
 
 .blog-time-row{
   display: flex;
-  gap: calc(var(--space-xs*0.5));
-  white-space: nowrap;
+  gap: calc(var(--space-xs)*0.5);
+flex-wrap: wrap;
 }
 
 
 
 .icon-read-More {
   cursor: pointer;
+  min-width: 0; 
   font-size: 1.2rem;
   color: var(--f-color);
   padding-inline: 4px;
@@ -101,20 +109,21 @@ flex-grow:1 ;
 /*Blog-Content */
 .info-blog-post {
   h2 {
+    padding-block: var(--space-sm);
     font-family: var(--ff-heading);
-    font-size: 1.3rem;
+    font-size: var(--fs-card-title);
     color: var(--f-color);
-    margin-block: 10px;
   }
 
   p {
+    margin-block-start:var(--space-sm); 
+    margin-block-end: var(--space-md);
     font-family: var(--ff-body);
-    line-height: 1.5;
+    font-size: var(--fs-body);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-block-start: var(--space-xs);
   }
 }
 
@@ -123,29 +132,30 @@ flex-grow:1 ;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   border-top: 1px solid rgb(210, 210, 210);
   color: var(--f-color);
-  font-size: 0.9rem;
-  padding-block-start: var(--space-xs);
-  gap: 16px;
+  padding-block: var(--space-sm);
+  gap: var(--space-xs);
 }
 
   .meta-dates-blog {
     display: flex;
-    gap: 30px;
+    gap: var(--space-sm);
   }
 
 .number-saw-it,
 .comments {
   font-family: var(--ff-body);
+    font-size: var(--fs-body);
+
   
 }
 
 
 .likes {
+  font-size: var(--fs-body);
   cursor: pointer;
   color: crimson;
-  padding-inline: 4px;
-  padding-block: 4px;
+  padding-inline: var(--space-sm);
 }

@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import type { ProductProp } from "./AddProduct";
 import api from "../api";
+import SearchProductByName from "./SearchProductByName";
 
+const useDevServer = true; // true = php -S (8000), false = XAMPP
+
+const IMAGE_BASE_URL = useDevServer
+    ? 'http://localhost:8000/Backend/api/' 
+  : "http://localhost/fakestore_website_API/api/";
 
 export default function ShowAllProducts() {
   const [products, setProducts] = useState<ProductProp[]>([]);
@@ -18,13 +24,29 @@ export default function ShowAllProducts() {
     }
   };
 
+  const handleDeleteProducts = async (productId:number) => {
+try{
+  const response = await api.delete(
+    `/products.php?id=${productId}`,
+  );
+
+  alert(response.data.message);
+  fetchAllProducts();
+}catch(error){
+  console.error("Fehler beim Löschen des Produkts", error);
+} 
+  }
+
   useEffect(() => {
     fetchAllProducts();
   }, []);
 
   return (
     <div className="all-products">
-      <div className="searchProductsId">Produkt suchen ...</div>
+      <SearchProductByName
+      onSearchResults={(results) => setProducts(results)}
+      onClearSearch={fetchAllProducts}
+      />
       <div className="product-table">
         <table>
           <thead>
@@ -54,9 +76,10 @@ export default function ShowAllProducts() {
                 <td data-title="Bild">
                   {product.image ? (
                     <img
-                      src={`http://localhost/fakestore_website_API/${product.image}`}
+                      src={`${IMAGE_BASE_URL}${product.image}`}
                       alt={product.label}
                       className="product-image"
+                      style={{ maxWidth: "80px", height: "auto" }} 
                     />
                   ) : (
                     "Kein Bild"
@@ -68,7 +91,10 @@ export default function ShowAllProducts() {
                 </td>
 
                 <td data-title="Löschen">
-                  <button className="product-Delte-Btn">Löschen</button>
+                  <button 
+                  className="product-Delte-Btn"
+                  onClick={() => handleDeleteProducts(product.product_id)}
+                  >Löschen</button>
                 </td>
               </tr>
             ))}

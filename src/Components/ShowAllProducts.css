@@ -71,6 +71,7 @@
 .product-Delte-Btn {
   display: inline-block;
   padding: 8px 12px;
+  cursor: pointer;
   border: none;
   border-radius: 5px;
   background-color: var(--subtle);
@@ -78,9 +79,62 @@
   cursor: pointer;
 }
 
+.product-Update-Btn{
+  transition: transform 200ms ease-out,
+                            box-shadow 200ms ease-out,
+                            background-color 200ms ease-out;
+
+  &:focus-visible{
+    outline: 3px solid oklch(32.114% 0.10819 36.7);
+    outline-offset: 3px;
+  }
+
+  &:active{
+    transform: translateY(0);
+  }
+}
+
 .product-Delte-Btn {
   background-color: var(--poppy);
+  transition: transform 200ms ease-out,
+                            box-shadow 200ms ease-out,
+                            background-color 200ms ease-out;
+
+  &:focus-visible{
+    outline: 3px solid oklch(57.243% 0.10957 227.219);
+    outline-offset: 3px;
+  }
+
+  &:active{
+    transform: translateY(0);
+  }
 }
+
+@media (hover:hover){
+  .product-Delte-Btn:hover {
+    background-color: color-mix(in oklch, var(--poppy) 85%, white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-Update-Btn:hover {
+    background-color: color-mix(in oklch, var(--subtle) 85%, white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+
+@media(prefers-reduced-motion: reduce){
+  .product-Delte-Btn, .product-Update-Btn {
+    transition: none;
+  }
+  .product-Delte-Btn:hover{
+    transform: none;
+  }
+}
+
 
 .product-image {
   width: 60px;
