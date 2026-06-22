@@ -12,10 +12,7 @@ const [users, setUsers] = useState<AllUserData[]>([]);
   
 const fetchAllUsers = async () => {
     try {
-      const response = await api.get(
-        "/users.php",
-      );
-
+      const response = await api.get("/users.php?all=1");
       setUsers(response.data);
     } catch (error) {
       console.error("Fehler beim Laden der Userdaten", error);
@@ -68,6 +65,11 @@ const fetchAllUsers = async () => {
               </tr>
             ))}
           </tbody>
+           <tfoot>
+            <tr>
+              <th colSpan={12}>Insgesamt {users.length} User</th>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>

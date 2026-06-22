@@ -8,6 +8,7 @@
 }
 
 .product-table {
+  margin-block-start: var(--space-md);
   width: 100%;
   overflow-x: auto;
   color: #fff;

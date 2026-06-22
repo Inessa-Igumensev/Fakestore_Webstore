@@ -20,7 +20,7 @@ export default function AddProduct() {
   const [imageFile, setImageFile] = useState<File | null>(null);
 
   const handleProductSubmit = async (
-    event: React.FormEvent<HTMLFormElement>
+    event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
 
@@ -38,10 +38,7 @@ export default function AddProduct() {
     formData.append("image", imageFile);
 
     try {
-      const response = await api.post(
-        "/products.php",
-        formData
-      );
+      const response = await api.post("/products.php", formData);
 
       setCategory("");
       setLabel("");
@@ -54,10 +51,9 @@ export default function AddProduct() {
 
       console.log("Produkt erfolgreich hinzugefügt", response.data);
     } catch (error: any) {
-      console.error(
-        "Fehler beim Erstellen:",
-        error.response?.data || error.message
-      );
+      console.error("Status:", error.response?.status);
+      console.error("Antwort vom Backend:", error.response?.data);
+      console.error("Fehler:", error.message);
     }
   };
 
@@ -119,8 +115,10 @@ export default function AddProduct() {
           <label htmlFor="image">Bild:</label>
           <input
             id="image"
+            name="image"
             type="file"
             accept="image/*"
+            required
             onChange={(e) => {
               const file = e.target.files?.[0] || null;
               setImageFile(file);

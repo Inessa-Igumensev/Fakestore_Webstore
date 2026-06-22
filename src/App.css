@@ -18,6 +18,9 @@
 @import url(Components/AddProducts.css);
 @import url(Components/Container.css);
 @import url(Components/ShowAllProducts.css);
+@import url(Components/SearchProductByName.css);
+
+
 /* CSS reset*/
 html,
 body,
