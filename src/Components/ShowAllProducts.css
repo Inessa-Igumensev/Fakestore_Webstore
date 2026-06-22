@@ -4,7 +4,6 @@
   color: var(--f-color);
   font-family: var(--ff-body);
   font-size: var(--fs-body);
-
 }
 
 .product-table {
@@ -80,38 +79,40 @@
   cursor: pointer;
 }
 
-.product-Update-Btn{
-  transition: transform 200ms ease-out,
-                            box-shadow 200ms ease-out,
-                            background-color 200ms ease-out;
+.product-Update-Btn {
+  transition:
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out,
+    background-color 200ms ease-out;
 
-  &:focus-visible{
+  &:focus-visible {
     outline: 3px solid oklch(32.114% 0.10819 36.7);
     outline-offset: 3px;
   }
 
-  &:active{
+  &:active {
     transform: translateY(0);
   }
 }
 
 .product-Delte-Btn {
   background-color: var(--poppy);
-  transition: transform 200ms ease-out,
-                            box-shadow 200ms ease-out,
-                            background-color 200ms ease-out;
+  transition:
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out,
+    background-color 200ms ease-out;
 
-  &:focus-visible{
+  &:focus-visible {
     outline: 3px solid oklch(57.243% 0.10957 227.219);
     outline-offset: 3px;
   }
 
-  &:active{
+  &:active {
     transform: translateY(0);
   }
 }
 
-@media (hover:hover){
+@media (hover: hover) {
   .product-Delte-Btn:hover {
     background-color: color-mix(in oklch, var(--poppy) 85%, white);
     transform: translateY(-2px);
@@ -125,17 +126,15 @@
   }
 }
 
-
-
-@media(prefers-reduced-motion: reduce){
-  .product-Delte-Btn, .product-Update-Btn {
+@media (prefers-reduced-motion: reduce) {
+  .product-Delte-Btn,
+  .product-Update-Btn {
     transition: none;
   }
-  .product-Delte-Btn:hover{
+  .product-Delte-Btn:hover {
     transform: none;
   }
 }
-
 
 .product-image {
   width: 60px;

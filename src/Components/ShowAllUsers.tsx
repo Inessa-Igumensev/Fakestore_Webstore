@@ -50,18 +50,18 @@ const fetchAllUsers = async () => {
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.username}</td>
-                <td>{user.firstname}</td>
-                <td>{user.surname}</td>
-                <td>{user.email}</td>
-                <td>{user.postal_code}</td>
-                <td>{user.country}</td>
-                <td>{user.street}</td>
-                <td>{user.mobile}</td>
-                <td>{user.role}</td>
-                <td>Bearbeiten</td>
-                <td>Löschen</td>
+                <td data-title="UserID">{user.id}</td>
+                <td data-title="Username">{user.username}</td>
+                <td data-title="Firstname">{user.firstname}</td>
+                <td data-title="Surname">{user.surname}</td>
+                <td data-title="E-Mail">{user.email}</td>
+                <td data-title="Postal_Code">{user.postal_code}</td>
+                <td data-title="Country">{user.country}</td>
+                <td data-title="Street">{user.street}</td>
+                <td data-title="Mobile">{user.mobile}</td>
+                <td data-title="Role">{user.role}</td>
+                <td data-title="User-Upt-Btn">Bearbeiten</td>
+                <td data-title="user-Del-Btn">Löschen</td>
               </tr>
             ))}
           </tbody>

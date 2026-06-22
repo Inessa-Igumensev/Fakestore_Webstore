@@ -1,0 +1,14 @@
+@import url("../Root.css");
+
+.allUsers {
+  color: var(--f-color);
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+}
+
+.user-table{
+    margin-block-start:var(--space-md);
+    width: 100%;
+    overflow-x: auto;
+    container-type: inline-size;
+}
