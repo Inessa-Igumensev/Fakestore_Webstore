@@ -19,7 +19,8 @@ export function getImageUrl(imagePath: string) {
     return imagePath;
   }
 
-  return `${API_BASE_URL}/${imagePath.replace(/^\/+/, "")}`;
+  const cleanPath = imagePath.replace(/^\/+/, "");
+  return `${API_BASE_URL}/${cleanPath}`;
 }
 
 export default api;

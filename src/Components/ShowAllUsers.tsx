@@ -50,18 +50,18 @@ const fetchAllUsers = async () => {
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>
-                <td data-title="UserID">{user.id}</td>
+                <td data-title="ID">{user.id}</td>
                 <td data-title="Username">{user.username}</td>
-                <td data-title="Firstname">{user.firstname}</td>
-                <td data-title="Surname">{user.surname}</td>
+                <td data-title="Vorname">{user.firstname}</td>
+                <td data-title="Nachname">{user.surname}</td>
                 <td data-title="E-Mail">{user.email}</td>
-                <td data-title="Postal_Code">{user.postal_code}</td>
-                <td data-title="Country">{user.country}</td>
-                <td data-title="Street">{user.street}</td>
-                <td data-title="Mobile">{user.mobile}</td>
+                <td data-title="Postleitzahl">{user.postal_code}</td>
+                <td data-title="Land">{user.country}</td>
+                <td data-title="Straße">{user.street}</td>
+                <td data-title="Mobilnummer">{user.mobile}</td>
                 <td data-title="Role">{user.role}</td>
-                <td data-title="User-Upt-Btn">Bearbeiten</td>
-                <td data-title="user-Del-Btn">Löschen</td>
+                <td data-title="Bearbeiten"><button className="user-Upt-Btn">Bearbeiten</button></td>
+                <td data-title="Löschen"><button className="user-Del-Btn">Löschen</button></td>
               </tr>
             ))}
           </tbody>
