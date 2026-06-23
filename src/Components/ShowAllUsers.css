@@ -75,8 +75,8 @@
 }
 
 .user-Del-Btn,
-.user-Upt-Btn{
-   display: inline-block;
+.user-Upt-Btn {
+  display: inline-block;
   padding: 8px 12px;
   cursor: pointer;
   border: none;
@@ -88,8 +88,8 @@
   font-size: var(--fs-body);
 }
 
-.user-Upt-Btn{
-   transition:
+.user-Upt-Btn {
+  transition:
     transform 200ms ease-out,
     box-shadow 200ms ease-out,
     background-color 200ms ease-out;
@@ -104,8 +104,8 @@
   }
 }
 
-.user-Del-Btn{
-   background-color: var(--poppy);
+.user-Del-Btn {
+  background-color: var(--poppy);
   transition:
     transform 200ms ease-out,
     box-shadow 200ms ease-out,
@@ -144,7 +144,6 @@
     transform: none;
   }
 }
-
 
 @container (min-width: 720px) {
   .user-table {

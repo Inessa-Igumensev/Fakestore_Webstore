@@ -49,8 +49,8 @@ const fetchAllUsers = async () => {
 
           <tbody>
             {users.map((user) => (
-              <tr key={user.id}>
-                <td data-title="ID">{user.id}</td>
+              <tr key={user.user_id}>
+                <td data-title="ID">{user.user_id}</td>
                 <td data-title="Username">{user.username}</td>
                 <td data-title="Vorname">{user.firstname}</td>
                 <td data-title="Nachname">{user.surname}</td>

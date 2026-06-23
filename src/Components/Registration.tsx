@@ -2,7 +2,7 @@ import { useState } from "react";
 import api from "../api";
 
 export interface Userprop {
-  id?: number;
+  user_id?: number;
   username: string;
   email: string;
   firstname: string;

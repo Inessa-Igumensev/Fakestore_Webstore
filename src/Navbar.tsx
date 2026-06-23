@@ -56,9 +56,9 @@ useEffect(() => {
         <div className="productDropdown">
           <Link to="/products">Shop</Link>
           <div className="dropdown-content">
-            <a href="#">Grußkarten</a>
+            <Link to="/cards">Grußkarten</Link>
             <a href="#">Notebooks</a>
-            <a href="#">Geschenkpapier</a>
+            <Link to="/wrapping-paper">Geschenkpapier</Link>
             <a href="#">Prints</a>
             <a href="#">Limitierte Auflagen</a>
           </div>

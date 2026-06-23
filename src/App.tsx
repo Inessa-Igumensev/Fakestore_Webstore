@@ -13,6 +13,8 @@ import BlogPostDetails from "./Components/BlogPostDetails";
 import Products from "./Components/Products";
 import User from "./Components/Userdata";
 import Admin from "./Components/Admin";
+import ShowAllCards from "./Components/ShowAllCards";
+import ShowAllWrappingP from "./Components/ShowAllWrappingP";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
               <Route path="/user" element={<User />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/cards" element={<ShowAllCards/>}/>
+              <Route path="/wrapping-paper" element={<ShowAllWrappingP/>}/>
               <Route path="/search" element={<SearchProducts />} />
               <Route path="/" element={<Start />} />
               <Route path="/info" element={<Info />} />
