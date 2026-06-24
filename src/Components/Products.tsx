@@ -1,15 +1,42 @@
 import api, { getImageUrl } from "../api";
 import { useState, useEffect } from "react";
 import type { ProductProp } from "./AddProduct";
+import { useParams } from "react-router-dom";
+
+const CategoryMapping: Record<string,{apiName: string; displayName: string}> ={
+  notebooks: { apiName: "Notebook", displayName: "Notitzbücher" },
+  geschenkpapier: { apiName: "Wrapping Paper", displayName: "Geschenkpapier" },
+  grußkarten: { apiName: "Card", displayName: "Grußkarten" }, 
+  prints: { apiName: "Print", displayName: "Prints" },
+}
 
 export default function Products() {
   const [products, setProducts] = useState<ProductProp[]>([]);
+  const [headline, setHeadline] = useState<string>("Alles ansehen");
+  
+  const { category } = useParams<{ category: string }>();
 
   const fetchAllProducts = async () => {
     try {
-      const response = await api.get("/products.php");
+      let url = "/products.php";
 
+      if(category){
+        const matchedCategory = CategoryMapping[category.toLocaleLowerCase()]
+        
+        const apiName= matchedCategory ? matchedCategory.apiName : category;
+        const displayName = matchedCategory ? matchedCategory.displayName :category
+
+        setHeadline(displayName);
+
+        url = `/products.php?category=${encodeURIComponent(apiName)}`;
+      }
+      else{
+        setHeadline("Alles ansehen");
+      }
+
+      const response = await api.get(url);
       setProducts(response.data);
+
     } catch (error) {
       console.error("Fehler beim Laden der Productsdaten", error);
     }
@@ -17,12 +44,12 @@ export default function Products() {
 
   useEffect(() => {
     fetchAllProducts();
-  }, []);
+  }, [category]);
 
   return (
     <div className="products">
       <div className="product-headline">
-        <h1>Alles ansehen</h1>
+        <h1>{headline}</h1>
       </div>
       <div className="all-product-wrapper">
         {products.map((product) => (

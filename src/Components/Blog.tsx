@@ -28,17 +28,17 @@ export default function BlogOverview() {
                   <div className="icon-blog-post">
                     <PiUserCircleDuotone />
                   </div>
-                   <div className="blog-metadates">
-  <span className="userName">Admin</span>
-  <div className="blog-time-row">
-    <div className="date-of-creation">
-      <span> {post.date}</span>
-    </div>
-    <div className="read-Time">
-      <span>{post.readTime}</span>
-    </div>
-  </div>
-</div>
+                  <div className="blog-metadates">
+                    <span className="userName">Admin</span>
+                    <div className="blog-time-row">
+                      <div className="date-of-creation">
+                        <span> {post.date}</span>
+                      </div>
+                      <div className="read-Time">
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                  </div>
                   <button className="icon-read-More">
                     <BiDotsVerticalRounded />
                   </button>
@@ -60,7 +60,7 @@ export default function BlogOverview() {
                     </span>
                   </div>
                   <button className="likes">
-                    <BsSuitHeart />{" "}
+                    <BsSuitHeart />
                   </button>
                 </div>
               </div>
