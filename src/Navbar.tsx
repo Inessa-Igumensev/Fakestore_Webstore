@@ -1,6 +1,4 @@
-import { FaMagnifyingGlass } from "react-icons/fa6";
-import { PiShoppingCartBold } from "react-icons/pi";
-import { LuCircleUserRound } from "react-icons/lu";
+import Symbol from "./Components/Icon";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "./Components/Login";
@@ -45,10 +43,8 @@ export const Navbar = () => {
     <div className="navbar">
       <Link to="/search">
         <button className="searchProductsBtn">
-          <span className=" iconSearch">
-            {<FaMagnifyingGlass />}
+          <span><Symbol name="magnifyingglass" /></span>
             <span> Suchen ...</span>
-          </span>
         </button>
       </Link>
       <div className="nav-middle">
@@ -69,7 +65,7 @@ export const Navbar = () => {
       </div>
       <div className="nav-user-cart">
         <Link to={userPath}>
-          <span className="iconUser"> {<LuCircleUserRound />}</span>
+          <span className="iconUser"> {<Symbol name="user" />}</span>
         </Link>
         {isLoggedIn ? (
           <button className="loginButton" onClick={openLogoutDialog}>
@@ -83,7 +79,7 @@ export const Navbar = () => {
 
         {seen ? <Login toggle={togglePop} /> : null}
         <Link to="/cart">
-          <span className="iconCart">{<PiShoppingCartBold />}</span>
+          <span className="iconCart">{<Symbol name="cart" />}</span>
         </Link>
 
         <Modal

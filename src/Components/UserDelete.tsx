@@ -1,14 +1,12 @@
-import { RiDeleteBin6Line } from "react-icons/ri";
+import Symbol from "./Icon";
 import { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 import api from "../api";
 
-
 export default function DeleteUser() {
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const [isHolding, setIsHolding] = useState<boolean>(false);
-  const [showDeleteConfirm, setShowDeleteConfirm] =
-    useState<boolean>(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState<boolean>(false);
 
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -46,23 +44,17 @@ export default function DeleteUser() {
     try {
       setIsDeleting(true);
 
-      await api.delete(
-        "/users.php",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      await api.delete("/users.php", {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       localStorage.removeItem("token");
       alert("Dein Benutzerkonto wurde gelöscht.");
       window.location.href = "/";
     } catch (error) {
-      console.error(
-        "Fehler beim Löschen des Benutzerkontos:",
-        error,
-      );
+      console.error("Fehler beim Löschen des Benutzerkontos:", error);
     } finally {
       setIsDeleting(false);
       setShowDeleteConfirm(false);
@@ -90,19 +82,16 @@ export default function DeleteUser() {
       >
         <span
           aria-hidden="true"
-          className={`hold-overlay ${
-            isHolding ? "hold-overlay--active" : ""
-          }`}
+          className={`hold-overlay ${isHolding ? "hold-overlay--active" : ""}`}
         >
-          <RiDeleteBin6Line className="binIcon" />
+          <Symbol name="bin" className="binIcon" />
           Konto löschen
         </span>
-
-        <RiDeleteBin6Line className="binIcon" />
+        <Symbol name="bin" className="binIcon" />
         Konto löschen
       </button>
 
-        <Modal
+      <Modal
         isOpen={showDeleteConfirm}
         hasCloseBtn
         closeButtonDisabled={isDeleting}
@@ -117,8 +106,8 @@ export default function DeleteUser() {
           <h2 id="delete-dialog-title">Konto löschen?</h2>
 
           <p id="delete-dialog-description">
-            Bist du sicher, dass du dein Konto löschen möchtest?
-            Diese Aktion kann nicht rückgängig gemacht werden.
+            Bist du sicher, dass du dein Konto löschen möchtest? Diese Aktion
+            kann nicht rückgängig gemacht werden.
           </p>
 
           <div className="modal-buttons">

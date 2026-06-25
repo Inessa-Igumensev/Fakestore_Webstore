@@ -1,11 +1,11 @@
 @import url("../Root.css");
 
-.search-product-form{
-    width: 100%;
+.search-product-form {
+  width: 100%;
 }
 
 .search-product-form input[type="text"] {
-  width: clamp(12rem,25vw,15rem);
+  width: clamp(12rem, 25vw, 15rem);
   border: 2px solid #ccc;
   border-radius: 4px;
   font-family: var(--ff-body);
@@ -16,7 +16,7 @@
   background-repeat: no-repeat;
   padding-block: var(--space-sm);
   padding-inline-start: var(--space-lg);
-    padding-inline-end: var(--space-sm);
+  padding-inline-end: var(--space-sm);
   transition: width 0.4s ease-in-out;
 
   &:focus {
@@ -29,4 +29,3 @@
     width: 100%;
   }
 }
-

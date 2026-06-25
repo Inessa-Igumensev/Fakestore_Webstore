@@ -1,15 +1,13 @@
 import { Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import type { Userdata } from "./Userdata";
-import { MdProductionQuantityLimits } from "react-icons/md";
-import { TbMoodEdit } from "react-icons/tb";
+import Symbol from "./Icon";
 import ShowAllUsers from "./ShowAllUsers";
 import defaultPic from "../assets/defaultProfil.jpg";
 import Collapsible from "./Collapsible";
 import AddProduct from "./AddProduct";
 import ShowAllProducts from "./ShowAllProducts";
 import api from "../api";
-
 
 export default function Admin() {
   const [myInfo, setMyInfo] = useState<Userdata | null>(null);
@@ -25,14 +23,11 @@ export default function Admin() {
     }
 
     try {
-      const response = await api.get(
-        "/users.php",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await api.get("/users.php", {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       setMyInfo(response.data);
     } catch (error) {
@@ -89,10 +84,7 @@ export default function Admin() {
         </div>
         <div className="edit-options">
           <span>
-            <MdProductionQuantityLimits />
-          </span>
-          <span>
-            <TbMoodEdit />
+            <Symbol name="edit" />
           </span>
         </div>
         <button className="adminContact-info">Kontakt Infomartionen</button>

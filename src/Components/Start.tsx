@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import placeHolderPic from "../assets/Placeholder.png";
-import Sidebar from "../Sidebar";
+import Sidebar from "./Sidebar";
 
 const collections = [
   { slug: "notebooks", title: "Notebooks", img: placeHolderPic },

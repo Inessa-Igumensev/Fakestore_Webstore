@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import type { Userprop } from "./Registration";
-import { PiUserCircleDuotone } from "react-icons/pi";
-import { BiDotsVerticalRounded } from "react-icons/bi";
-import { LiaUserEditSolid } from "react-icons/lia";
+import Symbol from "./Icon";
 import DeleteUser from "./UserDelete";
 import UserdataEdit from "./UserdataEdit";
 import api from "../api";
-
 
 export interface Userdata extends Userprop {
   created_at: string;
@@ -31,14 +28,11 @@ export default function User() {
     }
 
     try {
-      const response = await api.get(
-        "/users.php",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await api.get("/users.php", {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       setMyInfo(response.data);
     } catch (error) {
@@ -86,7 +80,7 @@ export default function User() {
               <div className="myinfo-header">
                 <div className="myinfo-info">
                   <div className="myinfo-icon">
-                    <PiUserCircleDuotone />
+                    <Symbol name="myuser" />
                   </div>
 
                   <div className="myinfo-userName">
@@ -102,7 +96,7 @@ export default function User() {
                     aria-expanded={showUpdateBTN}
                     aria-controls="profile-update-menu"
                   >
-                    <BiDotsVerticalRounded />
+                    <Symbol name="menue" />
                   </button>
 
                   <div
@@ -122,7 +116,7 @@ export default function User() {
                       }}
                     >
                       <span className="useredit-icon" aria-hidden="true">
-                        <LiaUserEditSolid />
+                        <Symbol name="edit" />
                       </span>
                       Profil bearbeiten
                     </button>
@@ -140,7 +134,6 @@ export default function User() {
                 <p>Mobil Nummer: {myInfo.mobile}</p>
                 <p>Erstellt am: {myInfo.created_at}</p>
               </div>
-
               <DeleteUser />
             </>
           )}

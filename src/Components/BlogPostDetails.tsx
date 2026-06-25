@@ -1,15 +1,7 @@
 import blogPostdata from "../blogData";
 import { useParams } from "react-router-dom";
-import { PiUserCircleDuotone } from "react-icons/pi";
-import { BiDotsVerticalRounded } from "react-icons/bi";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
+import Symbol from "./Icon";
 import { Link } from "react-router-dom";
-import { IoEyeOutline } from "react-icons/io5";
-import { TfiComment } from "react-icons/tfi";
-import { BsSuitHeart } from "react-icons/bs";
 
 export default function BlogPostDetails() {
   const { id } = useParams(); // Id aus dem URL nehmen
@@ -23,7 +15,7 @@ export default function BlogPostDetails() {
           <div className="detail-header">
             <div className="detail-user-info">
               <div className="detail-user-icon">
-                <PiUserCircleDuotone />
+                <Symbol name="myuser" size="2rem" />
               </div>
               <div>
                 <span className="author-name">Admin </span>
@@ -33,7 +25,7 @@ export default function BlogPostDetails() {
               </div>
             </div>
             <button className="share-btn">
-              <BiDotsVerticalRounded />
+              <Symbol name="menue" />
             </button>
           </div>
 
@@ -70,10 +62,10 @@ export default function BlogPostDetails() {
 
           <div className="detail-footer">
             <div className="detail-sozialIcons">
-              <FaFacebookF />
-              <FaTwitter />
-              <FaYoutube />
-              <FaInstagram />
+              <Symbol name="facebook" />
+              <Symbol name="twitter" />
+              <Symbol name="youtube" />
+              <Symbol name="instagram" />
             </div>
             <div className="details-count">
               <div className="details-count-left">
@@ -82,7 +74,7 @@ export default function BlogPostDetails() {
               </div>
 
               <button className="details-likes">
-                <BsSuitHeart />
+                <Symbol name="heart" />
               </button>
             </div>
           </div>
@@ -113,16 +105,16 @@ export default function BlogPostDetails() {
                   <div className="blog-footer-xs">
                     <div className="blog-stats-left">
                       <span className="stat-item">
-                        <IoEyeOutline />
+                        <Symbol name="seen" />
                         <span className="number-stat">{post.views} </span>
                       </span>
                       <span className="stat-item">
-                        <TfiComment />
+                        <Symbol name="comment" />
                         <span className="number-stat"> {post.comments}</span>
                       </span>
                     </div>
                     <button className="blog-xs-likesIcon">
-                      <BsSuitHeart />
+                      <Symbol name="heart" />
                     </button>
                   </div>
                 </div>

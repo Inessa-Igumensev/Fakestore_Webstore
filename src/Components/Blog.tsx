@@ -3,6 +3,8 @@ import { BsSuitHeart } from "react-icons/bs";
 import { TfiComment } from "react-icons/tfi";
 import { IoEyeOutline } from "react-icons/io5";
 import { PiUserCircleDuotone } from "react-icons/pi";
+import Symbol from "./Icon";
+
 import { Link } from "react-router-dom";
 import blogPostdata from "../blogData";
 
@@ -26,7 +28,7 @@ export default function BlogOverview() {
               <div className="user-blog-post">
                 <div className="user-info-blog-post">
                   <div className="icon-blog-post">
-                    <PiUserCircleDuotone />
+                    <Symbol name="myuser" />
                   </div>
                   <div className="blog-metadates">
                     <span className="userName">Admin</span>
@@ -40,7 +42,7 @@ export default function BlogOverview() {
                     </div>
                   </div>
                   <button className="icon-read-More">
-                    <BiDotsVerticalRounded />
+                    <Symbol name="menue" />
                   </button>
                 </div>
 
@@ -53,14 +55,16 @@ export default function BlogOverview() {
                 <div className="footer-blog-post">
                   <div className="meta-dates-blog">
                     <span className="number-saw-it">
-                      <IoEyeOutline /> {post.views}
+                      <Symbol name="seen" />
+                      {post.views}
                     </span>
                     <span className="comments">
-                      <TfiComment /> {post.comments}
+                      <Symbol name="comment" />
+                      {post.comments}
                     </span>
                   </div>
                   <button className="likes">
-                    <BsSuitHeart />
+                    <Symbol name="heart" />
                   </button>
                 </div>
               </div>

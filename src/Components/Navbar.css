@@ -39,7 +39,7 @@
   align-items: center;
   width: 60%;
   cursor: pointer;
-  margin-inline: var(--space-sm);
+  margin-inline: var(--space-xs);
   border-bottom: 1px solid var(--borderColor);
   height: 100%;
   white-space: nowrap;
@@ -49,6 +49,7 @@
   span {
     font-size: var(--fs-body);
     font-family: var(--ff-body);
+    padding-inline: var(--space-xs);
     padding-block-end: var(--space-sm);
     overflow: hidden;
     text-overflow: ellipsis;

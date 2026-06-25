@@ -13,19 +13,17 @@
   flex-direction: column;
   margin-block: var(--space-xl);
   margin-inline: var(--space-2xl);
-  
 
   h3 {
     font-family: var(--ff-heading);
-    font-size: calc(var(--fs-card-title)*0.9);
+    font-size: calc(var(--fs-card-title) * 0.9);
     font-weight: 300;
   }
 
   p {
     font-family: var(--ff-body);
-    font-size: calc(var(--fs-body)*0.8);
+    font-size: calc(var(--fs-body) * 0.8);
     padding-block: var(--space-md);
-    
   }
 }
 
@@ -39,7 +37,7 @@
     grid-column: 1/2;
     grid-row: 1;
     font-family: var(--ff-body);
-    font-size: calc(var(--fs-body)*0.8);
+    font-size: calc(var(--fs-body) * 0.8);
     padding-block: var(--space-sm);
   }
 
@@ -52,7 +50,7 @@
     padding-inline: var(--space-sm);
     background-color: var(--background);
     border: 1px solid var(--borderColor);
-    font-size: calc(var(--fs-body)*0.8);
+    font-size: calc(var(--fs-body) * 0.8);
     font-family: var(--ff-body);
   }
 
@@ -66,7 +64,8 @@
     label {
       font-family: var(--ff-heading);
       font-weight: 300;
-      font-size: calc(var(--fs-body)*0.8);
+      font-size: calc(var(--fs-body) * 0.8);
+      padding-inline: var(--space-sm);
     }
   }
 
@@ -76,7 +75,7 @@
     font-family: var(--ff-body);
     color: #ffffff;
     cursor: pointer;
-    font-size: calc(var(--fs-body)*0.8);
+    font-size: calc(var(--fs-body) * 0.8);
     background-color: var(--f-color);
     padding-block: 0.6rem;
     padding-inline: var(--space-xxl);
