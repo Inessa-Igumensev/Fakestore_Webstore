@@ -1,10 +1,4 @@
-import { BiDotsVerticalRounded } from "react-icons/bi";
-import { BsSuitHeart } from "react-icons/bs";
-import { TfiComment } from "react-icons/tfi";
-import { IoEyeOutline } from "react-icons/io5";
-import { PiUserCircleDuotone } from "react-icons/pi";
 import Symbol from "./Icon";
-
 import { Link } from "react-router-dom";
 import blogPostdata from "../blogData";
 

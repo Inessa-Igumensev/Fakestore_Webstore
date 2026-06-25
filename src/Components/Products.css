@@ -31,10 +31,10 @@
   height: 100%;
 }
 
-.all-product-image-container{
-    width: 100%;
-    aspect-ratio: 1/1;
-    overflow: hidden;
+.all-product-image-container {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
 }
 
 .all-product-image {
@@ -44,15 +44,14 @@
   aspect-ratio: 1/1;
   background-color: #efebe0;
   -webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   &:hover {
     transform: scale(1.05);
   }
 }
-
 
 @media (min-width: 1000px) {
   .all-product-wrapper {
@@ -73,7 +72,12 @@
 
   .product-label {
     word-break: break-word;
+    color: var(--f-color);
+
+    
   }
+
+
   .product-price {
     color: var(--borderColor);
   }

@@ -19,7 +19,6 @@ export default function ShowAllProducts() {
   const handleDeleteProducts = async (productId: number) => {
     try {
       const response = await api.delete(`/products.php?id=${productId}`);
-
       alert(response.data.message);
       fetchAllProducts();
     } catch (error) {

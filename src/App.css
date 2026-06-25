@@ -168,3 +168,8 @@ textarea {
   vertical-align: middle;
   background: transparent;
 }
+
+a{
+  text-decoration: none;
+  color: inherit;
+}

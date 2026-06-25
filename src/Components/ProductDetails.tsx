@@ -1,17 +1,59 @@
 import Collapsible from "./Collapsible";
 import Symbol from "./Icon";
+import api, { getImageUrl } from "../api";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import type { ProductProp } from "./AddProduct";
 
 export default function ProductDetails() {
+  const { product_id } = useParams<{ product_id: string }>();
+  const [product, setProduct] = useState<ProductProp | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchProductByID = async () => {
+      try {
+        const response = await api.get(`/products.php?id=${product_id}`);
+        setProduct(
+          Array.isArray(response.data) ? response.data[0] : response.data,
+        );
+      } catch (error) {
+        console.error("Fehler beim Laden der Productsdaten", error);
+      }
+    };
+
+    if (product_id) {
+      fetchProductByID();
+    }
+  }, [product_id]);
+
+  if (!product) {
+    return <div className="product-details">Lädt...</div>;
+  }
+
   return (
     <div className="product-details">
       <div className="product-route">
-        <div className="product-routing">Start / Kategorie / Label</div>
-        <div className="product-back-more"> Zurück | Weiter</div>
+        <div className="product-routing">
+          <Link to="/">Start</Link>
+          <Link to="/products/category">{product.category}</Link>
+          {product.label}
+        </div>
+        <div className="product-back-more">
+          <button onClick={() => navigate(-1)}>&lt; Zurück</button>
+          <button onClick={() => navigate(1)}>Weiter &gt;</button>
+        </div>
       </div>
       <div className="product-information">
         <div className="product-meta-dates">
-          <div className="product-img">Bild</div>
-          <div className="product-description">
+          <div className="product-img">
+            <img
+              src={getImageUrl(product.image)}
+              alt={product.label}
+              className="one-product-image"
+            />
+          </div>
+          <div className="product-specification">
             <p>
               Ich bin eine Produktbeschreibung. Bewerbe hier dein Produkt und
               gewinne die Aufmerksamkeit deiner Kunden. Beschreibe es klar und
@@ -20,12 +62,38 @@ export default function ProductDetails() {
           </div>
         </div>
         <div className="product-buy-container">
-          <div className="product-label">Label</div>
-          <div className="product-buy-number">Anzahl</div>
+          <div className="product-name">
+            <h1>{product.label}</h1>
+          </div>
+          <div className="product-number">
+            Artikelnummer: 00{product.product_id}
+          </div>
+          <div className="one-product-price">{product.price} €</div>
+
+          <div className="product-qty-input">
+            <p> Anzahl*</p>
+            <div className="qty-btn-group">
+              <button className="qty-count qty-count--minus" type="button">
+                <Symbol name="minus" />
+              </button>
+              <input
+                className="product-qty"
+                type="number"
+                min="0"
+                max={product.stock}
+                value="1"
+              />
+              <button className="qty-count qty-count--add" type="button">
+                <Symbol name="plus" />
+              </button>
+            </div>
+          </div>
+
           <button className="put-in-cart-Btn">In den Warenkorb</button>
           <div className="product-collapsible-container">
-            <Collapsible label="Produktinfo">Produkinfo</Collapsible>
+            <Collapsible label="Produktinfo">{product.description}</Collapsible>
             <hr />
+
             <Collapsible label="Rückgaberecht">
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -35,6 +103,7 @@ export default function ProductDetails() {
               </p>
             </Collapsible>
             <hr />
+
             <Collapsible label="Versandinformationen">
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
@@ -42,12 +111,12 @@ export default function ProductDetails() {
                 aliquyam erat, sed diam voluptua. At vero eos et accusam.
               </p>
             </Collapsible>
-            <div className="social-media-container-svg">
-              <Symbol name="facebook" className="Icons-SVG" />
-              <Symbol name="pinterest" className="Icons-SVG" />
-              <Symbol name="whatsapp" className="Icons-SVG" />
-              <Symbol name="twitter" className="Icons-SVG" />
-            </div>
+          </div>
+          <div className="social-media-container-svg">
+            <Symbol name="facebook" className="icons-SVG" />
+            <Symbol name="pinterest" className="icons-SVG" />
+            <Symbol name="whatsapp" className="icons-SVG" />
+            <Symbol name="twitter" className="icons-SVG" />
           </div>
         </div>
       </div>
