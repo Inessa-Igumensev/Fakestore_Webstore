@@ -4,10 +4,7 @@ import type { ProductProp } from "./AddProduct";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const CategoryMapping: Record<
-  string,
-  { apiName: string; displayName: string }
-> = {
+const CategoryMapping: Record<string,{ apiName: string; displayName: string }> = {
   notebooks: { apiName: "Notebook", displayName: "Notitzbücher" },
   geschenkpapier: { apiName: "Wrapping Paper", displayName: "Geschenkpapier" },
   grußkarten: { apiName: "Card", displayName: "Grußkarten" },
@@ -55,7 +52,10 @@ export default function Products() {
       </div>
       <div className="all-product-wrapper">
         {products.map((product) => (
-          <Link to={`/products/detail/${product.product_id}`} className="product-link">
+          <Link
+            to={`/products/detail/${product.product_id}`}
+            className="product-link"
+          >
             <div key={product.product_id} className="product-container">
               <div className="all-product-image-container">
                 <img

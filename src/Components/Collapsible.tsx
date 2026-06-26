@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 type CollapsibleProps = {
   label: string;
   children: React.ReactNode;
+  className?:string;
 };
 
 export default function Collapsible(props: CollapsibleProps) {
@@ -26,7 +27,7 @@ export default function Collapsible(props: CollapsibleProps) {
   };
 
   return (
-    <div className={`collapsible ${open ? "open" : ""}`}>
+    <div className={`collapsible ${open ? "open" : ""} ${props.className || ""}`}>
       <button className="toggleBtn" onClick={toggle}>
         {props.label}
       </button>

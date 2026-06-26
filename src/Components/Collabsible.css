@@ -3,18 +3,18 @@
 .collapsible {
   width: 100%;
   margin-inline: auto;
-
 }
-.toggleBtn{
+.toggleBtn {
   width: 100%;
-  font-family: var(--ff-body);
+  font-family: var(--ff-heading);
+  font-weight: 700;
+  color: var(--f-color);
   font-size: var(--fs-card-title);
   padding-block: var(--space-xs);
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-
 }
 
 .toggleBtn::after {

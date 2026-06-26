@@ -1,5 +1,4 @@
-@import "@fontsource/lato/300.css"; /*Light*/
-@import "@fontsource/lato/400.css"; /*Normal*/
+@import url(https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=Brandon+Grot+W01+Light);
 
 :root {
   --background: rgba(0, 0, 0, 0);
@@ -9,7 +8,7 @@
   --f-color: rgb(45, 45, 45);
 
   --ff-body: "Courier New", Courier, monospace;
-  --ff-heading: "Lato", sans-serif;
+  --ff-heading:  "Brandon Grot W01 Light", sans-serif;
 
   --fs-heading: clamp(1.75rem, 2.5vw, 2.5rem);
   --fs-subheading: clamp(1.5rem, 2vw, 2rem);

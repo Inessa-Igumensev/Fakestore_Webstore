@@ -10,6 +10,9 @@ export default function ProductDetails() {
   const [product, setProduct] = useState<ProductProp | null>(null);
   const navigate = useNavigate();
 
+  const nextId = Number(product_id) + 1;
+  const prevId = Number(product_id) - 1;
+
   useEffect(() => {
     const fetchProductByID = async () => {
       try {
@@ -31,17 +34,39 @@ export default function ProductDetails() {
     return <div className="product-details">Lädt...</div>;
   }
 
+  const apiCategory = product.category ? product.category.toLowerCase() : "";
+  let routeParam = "shop";
+  let displayName = product.category;
+
+  if (apiCategory.includes("paper") || apiCategory.includes("geschenk")) {
+    routeParam = "geschenkpapier";
+    displayName = "Geschenkpapier";
+  } else if (apiCategory.includes("note") || apiCategory.includes("buch")) {
+    routeParam = "notebooks";
+    displayName = "Notizbücher";
+  } else if (apiCategory.includes("card") || apiCategory.includes("karte")) {
+    routeParam = "grußkarten";
+    displayName = "Grußkarten";
+  } else if (apiCategory.includes("print")) {
+    routeParam = "prints";
+    displayName = "Prints";
+  }
+
   return (
     <div className="product-details">
       <div className="product-route">
         <div className="product-routing">
           <Link to="/">Start</Link>
-          <Link to="/products/category">{product.category}</Link>
-          {product.label}
+          <Link to={`/products/${routeParam}`}>{displayName}</Link>
+          <span>{product.label}</span>{" "}
         </div>
         <div className="product-back-more">
-          <button onClick={() => navigate(-1)}>&lt; Zurück</button>
-          <button onClick={() => navigate(1)}>Weiter &gt;</button>
+          <button onClick={() => navigate(`/products/detail/${prevId}`)}>
+            &lt; Zurück
+          </button>
+          <button onClick={() => navigate(`/products/detail/${nextId}`)}>
+            Weiter &gt;
+          </button>
         </div>
       </div>
       <div className="product-information">
@@ -91,10 +116,10 @@ export default function ProductDetails() {
 
           <button className="put-in-cart-Btn">In den Warenkorb</button>
           <div className="product-collapsible-container">
-            <Collapsible label="Produktinfo">{product.description}</Collapsible>
+            <Collapsible label="Produktinfo" className="product-page-collapsible">{product.description}</Collapsible>
             <hr />
 
-            <Collapsible label="Rückgaberecht">
+            <Collapsible label="Rückgaberecht" className="product-page-collapsible">
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
@@ -104,7 +129,7 @@ export default function ProductDetails() {
             </Collapsible>
             <hr />
 
-            <Collapsible label="Versandinformationen">
+            <Collapsible label="Versandinformationen" className="product-page-collapsible">
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
