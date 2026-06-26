@@ -1,0 +1,121 @@
+@import url("../../Root.css");
+
+/* -------- Start()-Styling -------- */
+.start-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--space-md);
+  row-gap: var(--space-lg);
+  margin-inline: auto;
+  margin-block: var(--space-xl);
+}
+
+.our-collection,
+.whats-new {
+  grid-column: 1/-1;
+  text-align: center;
+  margin-block-end: var(--space-md);
+  font-family: var(--ff-heading);
+  font-size: var(--fs-subheading);
+  font-weight: 300;
+  line-height: var(--lh-heading);
+  letter-spacing: 0.1em;
+  
+}
+
+.whats-new {
+  margin-block-start: var(--space-xxl);
+}
+
+/* -------- Kollektions-Karten -------- */
+
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  border: 1px solid var(--borderColor);
+}
+
+.collection-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background-color: var(--background);
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding-block: var(--space-lg);
+  background-color: var(--secondaryBackground);
+  color: white;
+  text-align: center;
+  font-family: var(--ff-body);
+
+  h3 {
+    font-weight: 400;
+    font-size: var(--fs-card-title);
+    line-height: var(--lh-body);
+  }
+
+  .alle-ansehen {
+    font-size: var(--fs-body);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+/* -------- Blog- & Shop-Karten -------- */
+
+.to-the-blog,
+.to-the-shop {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+  color: var(--secondaryBackground);
+}
+
+.to-the-blog img,
+.to-the-shop img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin-inline-start: auto;
+  border: 1px solid var(--borderColor);
+}
+
+.storys-guides,
+.limit-edition {
+  text-align: center;
+  h4 {
+    font-family: var(--ff-heading);
+    font-weight: 400;
+    font-size: var(--fs-subheading);
+    margin-block: var(--space-md);
+  }
+
+  p {
+    font-family: var(--ff-body);
+    font-size: var(--fs-body);
+    margin-block-start: var(--space-sm);
+  }
+}
+
+@media (max-width: 900px) {
+  .start-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .start-grid {
+    grid-template-columns: 1fr;
+  }
+  .to-the-blog,
+  .to-the-shop {
+    grid-column: 1 / -1;
+  }
+}

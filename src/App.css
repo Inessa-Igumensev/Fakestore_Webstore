@@ -1,28 +1,28 @@
-@import url(Components/Header.css);
-@import url(Components/Navbar.css);
-@import url(Components/Start.css);
-@import url(Components/Sidebar.css);
-@import url(Components/Subscribe.css);
-@import url(Components/Contact.css);
-@import url(Components/Info.css);
-@import url(Components/Blog.css);
-@import url(Components/BlogPostDetails.css);
-@import url(Components/Login.css);
-@import url(Components/Registration.css);
-@import url(Components/Userdata.css);
-@import url(Components/UserdataEdit.css);
-@import url(Components/UserDelete.css);
+@import "./Root.css";
+@import url(Components/Header/Header.css);
+@import url(Components/Header/Navbar.css);
+@import url(Components/Body/Start.css);
+@import url(Components/Body/Sidebar.css);
+@import url(Components/Footer/Subscribe.css);
+@import url(Components/Footer/Contact.css);
+@import url(Components/Body/Info.css);
+@import url(Components/Body/Blog.css);
+@import url(Components/Body/BlogPostDetails.css);
+@import url(Components/User/Login.css);
+@import url(Components/User/Registration.css);
+@import url(Components/User/Userdata.css);
+@import url(Components/User/UserdataEdit.css);
+@import url(Components/User/UserDelete.css);
 @import url(Components/Modal.css);
-@import url(Components/Admin.css);
+@import url(Components/User/Admin.css);
 @import url(Components/Collabsible.css);
-@import url(Components/AddProducts.css);
+@import url(Components/Products/AddProducts.css);
 @import url(Components/Container.css);
-@import url(Components/ShowAllProducts.css);
-@import url(Components/SearchProductByName.css);
-@import url(Components/ShowAllUsers.css);
-@import url(Components/Products.css);
-@import url(Components/ProductDetails.css);
-
+@import url(Components/Products/ShowAllProducts.css);
+@import url(Components/Products/SearchProductByName.css);
+@import url(Components/User/ShowAllUsers.css);
+@import url(Components/Products/Products.css);
+@import url(Components/Products/ProductDetails.css);
 
 /* CSS reset*/
 html,
@@ -169,7 +169,7 @@ textarea {
   background: transparent;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }

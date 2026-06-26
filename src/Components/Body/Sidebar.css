@@ -1,0 +1,18 @@
+@import url("../../Root.css");
+
+.sidebar {
+  position: fixed;
+  left: clamp(0.5rem, 2vw, 1.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  z-index: 10;
+
+  a {
+    display: block;
+    text-align: center;
+    padding-block: var(--space-sm);
+    color: var(--secondaryBackground);
+    font-size: 1.3lh;
+  }
+}

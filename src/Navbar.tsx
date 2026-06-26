@@ -1,13 +1,15 @@
 import Symbol from "./Components/Icon";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Login from "./Components/Login";
+import api from "./api";
+import Login from "./Components/User/Login";
 import Modal from "./Components/Modal";
 
 export const Navbar = () => {
   const [seen, setSeen] = useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [showDialog, setShowDialog] = useState<boolean>(false);
+  const [quantity, setQuantity] = useState<string>("");
 
   const navigate = useNavigate();
 
@@ -22,6 +24,15 @@ export const Navbar = () => {
     setShowDialog(false);
     console.log("Erfolgreich ausgeloggt");
     navigate("/");
+  };
+
+  const fetchCartquantity = async (user_id: number) => {
+    try {
+      const response = await api.get(`/cart.php?id={$user_id}`);
+      setQuantity(response.data);
+    } catch (error) {
+      console.error("Fehler", error);
+    }
   };
 
   function togglePop() {
@@ -43,8 +54,10 @@ export const Navbar = () => {
     <div className="navbar">
       <Link to="/search">
         <button className="searchProductsBtn">
-          <span><Symbol name="magnifyingglass" /></span>
-            <span> Suchen ...</span>
+          <span>
+            <Symbol name="magnifyingglass" />
+          </span>
+          <span> Suchen ...</span>
         </button>
       </Link>
       <div className="nav-middle">
@@ -78,8 +91,12 @@ export const Navbar = () => {
         )}
 
         {seen ? <Login toggle={togglePop} /> : null}
-        <Link to="/cart">
+        <Link to="/cart" className="cart-container">
           <span className="iconCart">{<Symbol name="cart" />}</span>
+          <button 
+          className="user-cart-Btn"
+          value={quantity}>
+          </button>
         </Link>
 
         <Modal
@@ -90,7 +107,7 @@ export const Navbar = () => {
           ariaDescribedBy="logout-dialog-description"
         >
           <div
-            className="del-container" // Nutzt dieselbe CSS-Struktur wie beim Löschen
+            className="del-container"
             onMouseDown={(event) => event.stopPropagation()}
           >
             <h2 id="logout-dialog-title">Abmelden?</h2>

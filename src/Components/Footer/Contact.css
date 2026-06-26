@@ -1,0 +1,38 @@
+@import url("../../Root.css");
+
+/* Contact Styling */
+.contact {
+   scroll-margin-top: 120px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  border-top: 1px solid var(--borderColor);
+  border-bottom: 1px solid var(--borderColor);
+
+  & > div:not(:first-child) {
+    border-left: 1px solid var(--borderColor);
+  }
+}
+
+.info-contact{
+  padding-block: var(--space-xl);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p-contacts{
+  flex-grow: 1;
+  h1{
+    font-family: var(--ff-heading);
+    font-size: var(--fs-subheading);
+    font-weight: 300;
+    margin-block-end:var(--space-lg) ;
+  }
+
+  p{
+    font-family:var(--ff-body);
+    padding-block: var(--space-xs);
+  }
+
+}

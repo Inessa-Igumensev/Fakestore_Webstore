@@ -1,19 +1,18 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Start from "./Components/Start";
-import SearchProducts from "./Components/SearchProducts";
-import Info from "./Components/Info";
-import { ShippingInfo } from "./Components/ShippingInfo";
+import Start from "./Components/Body/Start";
+import Info from "./Components/Body/Info";
+import { ShippingInfo } from "./Components/Header/ShippingInfo";
 import { Navbar } from "./Navbar";
-import { Logo } from "./Components/Logo";
-import { Subscribe } from "./Components/Subscribe";
-import { Contact } from "./Components/Contact";
-import BlogOverview from "./Components/Blog";
-import BlogPostDetails from "./Components/BlogPostDetails";
-import Products from "./Components/Products";
-import User from "./Components/Userdata";
-import Admin from "./Components/Admin";
-import ProductDetails from "./Components/ProductDetails";
+import { Logo } from "./Components/Header/Logo";
+import { Subscribe } from "./Components/Footer/Subscribe";
+import { Contact } from "./Components/Footer/Contact";
+import BlogOverview from "./Components/Body/Blog";
+import BlogPostDetails from "./Components/Body/BlogPostDetails";
+import Products from "./Components/Products/Products";
+import User from "./Components/User/Userdata";
+import Admin from "./Components/User/Admin";
+import ProductDetails from "./Components/Products/ProductDetails";
 
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/products/:category" element={<Products />} />
             <Route path="/products/detail/:product_id" element={<ProductDetails />} />
-            <Route path="/search" element={<SearchProducts />} />
             <Route path="/" element={<Start />} />
             <Route path="/info" element={<Info />} />
             <Route path="/blog" element={<BlogOverview />} />

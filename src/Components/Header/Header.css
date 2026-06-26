@@ -1,0 +1,47 @@
+@import url("../../Root.css");
+
+.header {
+ width: 100%;
+  position: static;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 8px;
+  margin-bottom: -2px;
+}
+
+.shippingInfo {
+  width: 100%;
+  background-color: var(--secondaryBackground);
+padding-block: VAR(--space-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-family: var(--ff-body);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: var(--fs-body);
+  }
+}
+
+.logoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-block: var(--space-lg);
+
+  /*   logo {
+  
+  } 
+  */
+
+  span {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-card-title);
+    letter-spacing: 0.05em;
+  }
+}
