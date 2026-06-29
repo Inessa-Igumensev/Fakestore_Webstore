@@ -4,6 +4,7 @@ import api, { getImageUrl } from "../../api";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import type { ProductProp } from "./AddProduct";
+import AddProductToCart from "../Cart/AddProductToCart";
 
 export default function ProductDetails() {
   const { product_id } = useParams<{ product_id: string }>();
@@ -94,32 +95,22 @@ export default function ProductDetails() {
             Artikelnummer: 00{product.product_id}
           </div>
           <div className="one-product-price">{product.price} €</div>
+          <p> Anzahl*</p>
 
-          <div className="product-qty-input">
-            <p> Anzahl*</p>
-            <div className="qty-btn-group">
-              <button className="qty-count qty-count--minus" type="button">
-                <Symbol name="minus" />
-              </button>
-              <input
-                className="product-qty"
-                type="number"
-                min="0"
-                max={product.stock}
-                value="1"
-              />
-              <button className="qty-count qty-count--add" type="button">
-                <Symbol name="plus" />
-              </button>
-            </div>
-          </div>
-
-          <button className="put-in-cart-Btn">In den Warenkorb</button>
+          <AddProductToCart />
           <div className="product-collapsible-container">
-            <Collapsible label="Produktinfo" className="product-page-collapsible">{product.description}</Collapsible>
+            <Collapsible
+              label="Produktinfo"
+              className="product-page-collapsible"
+            >
+              {product.description}
+            </Collapsible>
             <hr />
 
-            <Collapsible label="Rückgaberecht" className="product-page-collapsible">
+            <Collapsible
+              label="Rückgaberecht"
+              className="product-page-collapsible"
+            >
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
@@ -129,7 +120,10 @@ export default function ProductDetails() {
             </Collapsible>
             <hr />
 
-            <Collapsible label="Versandinformationen" className="product-page-collapsible">
+            <Collapsible
+              label="Versandinformationen"
+              className="product-page-collapsible"
+            >
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna

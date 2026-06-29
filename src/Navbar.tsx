@@ -1,15 +1,18 @@
 import Symbol from "./Components/Icon";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "./api";
 import Login from "./Components/User/Login";
 import Modal from "./Components/Modal";
+import Cart from "./Components/Cart/Cart";
 
 export const Navbar = () => {
   const [seen, setSeen] = useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [showDialog, setShowDialog] = useState<boolean>(false);
   const [quantity, setQuantity] = useState<string>("");
+  const [showCart, setShowCart] = useState<boolean>(false);
+  const { user_id } = useParams<{ user_id: string }>();
 
   const navigate = useNavigate();
 
@@ -26,14 +29,33 @@ export const Navbar = () => {
     navigate("/");
   };
 
-  const fetchCartquantity = async (user_id: number) => {
-    try {
-      const response = await api.get(`/cart.php?id={$user_id}`);
-      setQuantity(response.data);
-    } catch (error) {
-      console.error("Fehler", error);
+  useEffect(() => {
+    const fetchCartquantity = async () => {
+      try {
+        const response = await api.get(`/cart.php?user_id=${user_id}`);
+        if (response.data.items && Array.isArray(response.data.items)) {
+          let totalItems: number = 0;
+
+          for (let i = 0; i < response.data.items.length; i++) {
+            totalItems += response.data.items[i].quantity;
+          }
+
+          setQuantity(totalItems.toString());
+        } else {
+          setQuantity("0");
+        }
+      } catch (error) {
+        console.error("Fehler beim Laden des Warenkorbs", error);
+        setQuantity("0");
+      }
+    };
+
+    if (user_id) {
+      fetchCartquantity();
+    } else {
+      setQuantity("0");
     }
-  };
+  }, [user_id]);
 
   function togglePop() {
     setSeen(!seen);
@@ -89,15 +111,22 @@ export const Navbar = () => {
             Anmelden
           </button>
         )}
-
         {seen ? <Login toggle={togglePop} /> : null}
-        <Link to="/cart" className="cart-container">
-          <span className="iconCart">{<Symbol name="cart" />}</span>
-          <button 
-          className="user-cart-Btn"
-          value={quantity}>
+
+        <div className="cart-container">
+          <span className="iconCart" onClick={() => setShowCart(true)}>
+            <Symbol name="cart" />
+          </span>
+          <button
+            className="user-cart-Btn"
+            type="button"
+            onClick={() => setShowCart(true)}
+          >
+            {quantity || "0"}
           </button>
-        </Link>
+        </div>
+        < Cart isOpen = {showCart} onClose={() => setShowCart(false)} 
+        user_id={Number(user_id)} />
 
         <Modal
           isOpen={showDialog}

@@ -23,6 +23,7 @@
 @import url(Components/User/ShowAllUsers.css);
 @import url(Components/Products/Products.css);
 @import url(Components/Products/ProductDetails.css);
+@import url(Components/Cart/AddProductToCart.css);
 
 /* CSS reset*/
 html,
