@@ -25,19 +25,28 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
   });
 
   const fetchCart = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
     try {
-      const response = await api.get(`/cart.php?user_id=${user_id}`);
+      const response = await api.get(`/cart.php`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setCart(response.data);
+      window.dispatchEvent(new Event("cartUpdated"));
     } catch (error) {
       console.error("Fehler beim Laden des Warenkorbs", error);
     }
   };
 
   const totalQuantity = () => {
+    const items = cart.items || [];
     let totalItems: number = 0;
 
-    for (let i = 0; i < cart.items.length; i++) {
-      totalItems += cart.items[i].quantity;
+    for (let i = 0; i < items.length; i++) {
+      totalItems += items[i].quantity;
     }
     return totalItems;
   };
@@ -47,26 +56,47 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
     currentQuantity: number,
     change: number,
   ) => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
     const newQuantity = currentQuantity + change;
     try {
-      await api.put(`/cart.php`, {
-        user_id: user_id,
-        product_id: product_id,
-        quantity: newQuantity,
-      });
+      await api.put(
+        `/cart.php`,
+        {
+          product_id: product_id,
+          quantity: newQuantity,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
       fetchCart();
+      window.dispatchEvent(new Event("cartUpdated"));
     } catch (error) {
       console.error("Fehler beim Aktualisieren des Warenkorbes", error);
     }
   };
 
   const deleteItem = async (product_id: number) => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
     try {
       await api.delete(`/cart.php`, {
-        data: { user_id: user_id, product_id: product_id },
+        data: {
+          product_id: product_id,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
+
       fetchCart();
+      window.dispatchEvent(new Event("cartUpdated"));
     } catch (error) {
       console.error("Fehler beim Löschen des Produkts", error);
     }
@@ -81,16 +111,20 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
   return (
     <>
       {isOpen && <div className="cart-overlay" onClick={onClose}></div>}
+      <div className={`cart-wrapper ${isOpen ? "open" : ""}`}>
+        <div className="cart-header">
+          <div className="cart-header-pad">
+            <div className="cart-header-text">
+              <h1>Warenkorb</h1>
+              <span>({totalQuantity()} Artikel)</span>
+            </div>
 
-      <div className={`cart-container ${isOpen ? "open" : ""}`}>
-        <div className="cart-pad">
-          <div className="cart-header">
-            <h1>Warenkorb</h1>
-            <span>{totalQuantity()} Artikel</span>
-            <button className="cart-close" onClick={onClose}>
+            <button className="cart-close-btn" onClick={onClose}>
               &times;
             </button>
           </div>
+        </div>
+        <div className="cart-gap">
           <div className="cart-products-list">
             {cart.items.length === 0 ? (
               <p className="cart-empty">Dein Warenkorb ist leer</p>
@@ -102,16 +136,20 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
                       <img
                         src={getImageUrl(item.image)}
                         alt={item.label}
-                        className="product-image"
-                        style={{ maxWidth: "80px", height: "auto" }}
+                        className="cart-product-image"
                       />
                     ) : (
                       "Kein Bild"
                     )}
                   </div>
+
                   <div className="cart-clumn-2">
-                    <span>{item.label}</span>
-                    <span>{item.unit_price} €</span>
+                    <p>
+                      <span>{item.label}</span>
+                    </p>
+                    <p>
+                      <span>{item.unit_price} €</span>
+                    </p>
                     <div className="qty-Btns">
                       <button
                         className="qty-count"
@@ -121,7 +159,7 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
                       >
                         <Symbol name="minus" />
                       </button>
-                      <span>{item.quantity}</span>
+                      <span className="qty-display">{item.quantity}</span>
                       <button
                         className="qty-count"
                         onClick={() =>
@@ -132,21 +170,31 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
                       </button>
                     </div>
                   </div>
+
                   <div className="cart-clumn-3">
-                    <span className="delete-cart-item" 
-                    onClick={() => deleteItem(item.product_id)}
-                    >{<Symbol name="bin" />} </span>
-                    <span>{item.total_price} €</span>
+                    <span
+                      className="delete-cart-item"
+                      onClick={() => deleteItem(item.product_id)}
+                    >
+                      <Symbol name="bin" />
+                    </span>
+
+                    <div className="cart-item-total-price">
+                      <span>{item.total_price} €</span>
+                    </div>
                   </div>
                 </div>
               ))
             )}
           </div>
-          <div className="code">Gutschein code eingeben</div>
-          <div className="cart-bottom">
+          <div className="card-bottom">
+            <div className="coupon-code">
+              <Symbol name="tag" className="coupon-tag" />
+              Gutschein code eingeben
+            </div>
             <span>Gesamtsumme {cart.total_cart_price} €</span>
-            <button className="cheackout-Btn">Zur Kasse</button>
-            <button className="show-cart">Warenkorb ansehen</button>
+            <button className="checkout-Btn">Zur Kasse</button>
+            <button className="show-cart-Btn">Warenkorb ansehen</button>
           </div>
         </div>
       </div>

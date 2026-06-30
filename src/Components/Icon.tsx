@@ -13,7 +13,8 @@ import { IoEyeOutline } from "react-icons/io5";
 import { TfiComment } from "react-icons/tfi";
 import { BsSuitHeart } from "react-icons/bs";
 import { LiaUserEditSolid } from "react-icons/lia";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { PiTrashThin } from "react-icons/pi";
+import { IoPricetagOutline } from "react-icons/io5";
 import { HiOutlineMinus,HiOutlinePlus } from "react-icons/hi";
 
 export interface Iconprops {
@@ -36,11 +37,12 @@ const icons = {
   comment: TfiComment,
   heart: BsSuitHeart,
   edit: LiaUserEditSolid,
-  bin: RiDeleteBin6Line,
+  bin: PiTrashThin,
   cart: PiShoppingCartBold,
   magnifyingglass: FaMagnifyingGlass,
   minus: HiOutlineMinus,
-  plus:HiOutlinePlus
+  plus:HiOutlinePlus,
+  tag:IoPricetagOutline,
 };
 
 export default function Symbol({ name, className, size }: Iconprops) {

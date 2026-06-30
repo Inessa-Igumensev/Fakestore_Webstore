@@ -3,17 +3,16 @@ import api from "../../api";
 import { useState } from "react";
 
 export interface AddProductToCartProps {
-  user_id: number;
+  user_id?: number;
   product_id: number;
   isCartUpdate?: () => void;
 }
 
 export default function AddProductToCart({
-  user_id,
   product_id,
   isCartUpdate,
 }: AddProductToCartProps) {
-  const [nowQty, setNowQty] = useState<number>(0);
+  const [nowQty, setNowQty] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleQuantityChange = (change: number) => {
@@ -22,29 +21,43 @@ export default function AddProductToCart({
       return changeQuantity < 1 ? 1 : changeQuantity;
     });
   };
+
   const handleAddToCart = async () => {
-    if (!user_id) {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
       alert("Bitte melde dich zuerst an!");
       return;
     }
     setIsLoading(true);
 
     try {
-      await api.post(`/cart.php`, {
-        user_id: user_id,
-        product_id: product_id,
-        quantity: nowQty,
-      });
+      await api.post(
+        `/cart.php`,
+        {
+          product_id: product_id,
+          quantity: nowQty,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      window.dispatchEvent(new Event("cartUpdated"));
+
       if (isCartUpdate) {
         isCartUpdate();
       }
-      setNowQty(0);
+      setNowQty(1);
     } catch (error) {
       console.error("Fehler beim Hinzufügen zum Warenkorb", error);
     } finally {
       setIsLoading(false);
     }
   };
+
 
   return (
     <div className="add-product-to-cart">

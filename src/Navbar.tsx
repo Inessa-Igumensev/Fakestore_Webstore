@@ -29,32 +29,47 @@ export const Navbar = () => {
     navigate("/");
   };
 
-  useEffect(() => {
-    const fetchCartquantity = async () => {
-      try {
-        const response = await api.get(`/cart.php?user_id=${user_id}`);
-        if (response.data.items && Array.isArray(response.data.items)) {
-          let totalItems: number = 0;
+  const fetchCartquantity = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setQuantity("0");
+      return;
+    }
 
-          for (let i = 0; i < response.data.items.length; i++) {
-            totalItems += response.data.items[i].quantity;
-          }
+    try {
+      const response = await api.get(`/cart.php?`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.data.items && Array.isArray(response.data.items)) {
+        let totalItems: number = 0;
 
-          setQuantity(totalItems.toString());
-        } else {
-          setQuantity("0");
+        for (let i = 0; i < response.data.items.length; i++) {
+          totalItems += response.data.items[i].quantity;
         }
-      } catch (error) {
-        console.error("Fehler beim Laden des Warenkorbs", error);
+
+        setQuantity(totalItems.toString());
+      } else {
         setQuantity("0");
       }
-    };
-
-    if (user_id) {
-      fetchCartquantity();
-    } else {
+    } catch (error) {
+      console.error("Fehler beim Laden des Warenkorbs", error);
       setQuantity("0");
     }
+  };
+
+  useEffect(() => {
+    fetchCartquantity();
+
+    const handleCartUpdateEvent = () => {
+      fetchCartquantity();
+    };
+
+    window.addEventListener("cartUpdated", handleCartUpdateEvent);
+    return () => {
+      window.removeEventListener("cartUpdated", handleCartUpdateEvent);
+    };
   }, [user_id]);
 
   function togglePop() {
@@ -122,11 +137,14 @@ export const Navbar = () => {
             type="button"
             onClick={() => setShowCart(true)}
           >
-            {quantity || "0"}
+            {quantity}
           </button>
         </div>
-        < Cart isOpen = {showCart} onClose={() => setShowCart(false)} 
-        user_id={Number(user_id)} />
+        <Cart
+          isOpen={showCart}
+          onClose={() => setShowCart(false)}
+          user_id={Number(user_id)}
+        />
 
         <Modal
           isOpen={showDialog}

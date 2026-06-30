@@ -97,7 +97,7 @@ export default function ProductDetails() {
           <div className="one-product-price">{product.price} €</div>
           <p> Anzahl*</p>
 
-          <AddProductToCart />
+<AddProductToCart product_id={product.product_id} />
           <div className="product-collapsible-container">
             <Collapsible
               label="Produktinfo"

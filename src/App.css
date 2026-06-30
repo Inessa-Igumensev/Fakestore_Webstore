@@ -24,6 +24,7 @@
 @import url(Components/Products/Products.css);
 @import url(Components/Products/ProductDetails.css);
 @import url(Components/Cart/AddProductToCart.css);
+@import url(Components/Cart/Cart.css);
 
 /* CSS reset*/
 html,

@@ -43,12 +43,17 @@
       padding-block: var(--space-xs);
       color: rgb(150, 150, 150);
       font-size: 1.2lh;
+
+      &:focus{
+        color:var(--f-color);
+      }
+      
     }
   }
 }
 
 .put-in-cart-Btn {
-  width: auto;
+  width: 100%;
   padding-block: var(--space-md);
   border: 1px solid var(--borderColor);
   font-family: var(--ff-body);
