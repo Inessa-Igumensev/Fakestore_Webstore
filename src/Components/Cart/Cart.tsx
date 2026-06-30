@@ -159,7 +159,7 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
                       >
                         <Symbol name="minus" />
                       </button>
-                      <span className="qty-display">{item.quantity}</span>
+                      <div className="qty-display">{item.quantity}</div>
                       <button
                         className="qty-count"
                         onClick={() =>
