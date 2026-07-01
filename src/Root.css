@@ -8,7 +8,7 @@
 
   /*Border-Colors*/
   --borderColor: rgb(117, 117, 117);
-  --borderColor-light: rgb(232, 232, 232);
+  --borderColor-light:	rgb(220,220,220);
 
   /*Font-Colors*/
   --f-color: rgb(45, 45, 45);
@@ -20,10 +20,11 @@
   --ff-heading: "Brandon Grot W01 Light", sans-serif;
 
     /*Font-Size*/
-  --fs-heading: clamp(2rem, 5vw, 4rem);
-  --fs-subheading: clamp(1.5rem, 3vw, 2.5rem);
-  --fs-card-title:  1.5rem;
-  --fs-body: 1rem;
+--fs-heading: clamp(1.5rem, 3vw, 2.25rem);       
+  --fs-subheading: clamp(1.25rem, 2vw, 1.75rem); 
+  --fs-card-title: 1.25rem;                       
+  --fs-body: 1rem;                                 
+  --fs-small: 0.875rem;
 
   /*Spaces*/
   --space-xs: 0.2rem;

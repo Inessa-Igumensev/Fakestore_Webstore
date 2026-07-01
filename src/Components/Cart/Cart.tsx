@@ -2,6 +2,7 @@ import api, { getImageUrl } from "../../api";
 import Symbol from "../Icon";
 import { useState, useEffect } from "react";
 import type { ProductProp } from "../Products/AddProduct";
+import { Link } from "react-router-dom";
 
 export interface CartItems extends ProductProp {
   unit_price: number;
@@ -23,6 +24,11 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
     items: [],
     total_cart_price: 0,
   });
+  const [isCouponInput, setIsCouponInput] = useState<boolean>(false);
+
+  function showCouponInput() {
+    setIsCouponInput((isCouponInput) => !isCouponInput);
+  }
 
   const fetchCart = async () => {
     const token = localStorage.getItem("token");
@@ -124,15 +130,15 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
             </button>
           </div>
         </div>
-        <div className="cart-gap">
-          <div className="cart-products-list">
-            {cart.items.length === 0 ? (
-              <p className="cart-empty">Dein Warenkorb ist leer</p>
-            ) : (
-              
-              cart.items.map((item) => (
-                <div className="card-products" key={item.product_id}>
-                  <div className="cart-product-img">
+
+        <div className="cart-products-list">
+          {cart.items.length === 0 ? (
+            <p className="cart-empty">Dein Warenkorb ist leer</p>
+          ) : (
+            <ul className="cart-items-ul">
+              {cart.items.map((item) => (
+                <li className="card-products" key={item.product_id}>
+                  <div className="cart-product-img-container">
                     {item.image ? (
                       <img
                         src={getImageUrl(item.image)}
@@ -144,59 +150,79 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
                     )}
                   </div>
 
-                  <div className="cart-clumn-2">
+                  <div className="cart-items-info">
                     <p>
-                      <span>{item.label}</span>
+                      <Link
+                        to={`/products/detail/${item.product_id}`}
+                        className="cart-product-link"
+                        onClick={onClose}
+                      >
+                        <span> {item.label}</span>
+                      </Link>
                     </p>
                     <p>
-                      <span>{item.unit_price} €</span>
+                      <span>{Number(item.unit_price).toFixed(2)} €</span>
                     </p>
-                    <div className="qty-Btns">
-                      <button
-                        className="qty-count"
-                        onClick={() =>
-                          handleCartUpdate(item.product_id, item.quantity, -1)
-                        }
-                      >
-                        <Symbol name="minus" />
-                      </button>
-                      <div className="qty-display">{item.quantity}</div>
-                      <button
-                        className="qty-count"
-                        onClick={() =>
-                          handleCartUpdate(item.product_id, item.quantity, +1)
-                        }
-                      >
-                        <Symbol name="plus" />
-                      </button>
+                    <div className="cart-item-quantity-price">
+                      <div className="qty-Btns">
+                        <button
+                          className="qty-count"
+                          onClick={() =>
+                            handleCartUpdate(item.product_id, item.quantity, -1)
+                          }
+                        >
+                          <Symbol name="minus" />
+                        </button>
+                        <div className="qty-display">{item.quantity}</div>
+                        <button
+                          className="qty-count"
+                          onClick={() =>
+                            handleCartUpdate(item.product_id, item.quantity, +1)
+                          }
+                        >
+                          <Symbol name="plus" />
+                        </button>
+                      </div>
+                      <div className="cart-item-total-price">
+                        <span>{Number(item.total_price).toFixed(2)} €</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="cart-clumn-3">
-                    <span
-                      className="delete-cart-item"
-                      onClick={() => deleteItem(item.product_id)}
-                    >
-                      <Symbol name="bin" />
-                    </span>
+                  <button
+                    className="delete-cart-item-Btn"
+                    onClick={() => deleteItem(item.product_id)}
+                    aria-label="Artikel entfernen"
+                  >
+                    <Symbol name="bin" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
 
-                    <div className="cart-item-total-price">
-                      <span>{item.total_price} €</span>
-                    </div>
-                  </div>
-                </div>
-              ))
+        <div className="card-bottom">
+
+          <div className="cart-coupon-container">
+            <button className={`coupon-code ${isCouponInput ? 'active-open' : ''}`} 
+            onClick={showCouponInput}>
+              <Symbol name="tag" className="coupon-tag" />
+              <span>Gutscheincode eingeben</span>
+            </button>
+            {isCouponInput && (
+              <div className="coupon-input-wrapper">
+                <input className="coupon-input" placeholder="z.B 50SPAREN" />
+                <button className="use-coupon-Btn">Anwenden</button>
+              </div>
             )}
           </div>
-          <div className="card-bottom">
-            <div className="coupon-code">
-              <Symbol name="tag" className="coupon-tag" />
-              Gutschein code eingeben
-            </div>
-            <span>Gesamtsumme {cart.total_cart_price} €</span>
-            <button className="checkout-Btn">Zur Kasse</button>
-            <button className="show-cart-Btn">Warenkorb ansehen</button>
-          </div>
+
+          <span className="total-cart-price">
+            Gesamtsumme {Number(cart.total_cart_price).toFixed(2)} €
+          </span>
+          <button className="checkout-Btn">Zur Kasse</button>
+          <button className="show-cart-Btn">Warenkorb ansehen</button>
         </div>
       </div>
     </>
