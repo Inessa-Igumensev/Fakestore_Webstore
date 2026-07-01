@@ -129,6 +129,7 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
             {cart.items.length === 0 ? (
               <p className="cart-empty">Dein Warenkorb ist leer</p>
             ) : (
+              
               cart.items.map((item) => (
                 <div className="card-products" key={item.product_id}>
                   <div className="cart-product-img">

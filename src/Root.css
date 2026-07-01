@@ -1,20 +1,31 @@
 @import url(https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=Brandon+Grot+W01+Light);
 
 :root {
+  /*Background-Colors*/
   --background: rgba(0, 0, 0, 0);
   --secondaryBackground: rgb(45, 45, 45);
+  --background-cart: rgb(255, 255, 255);
+
+  /*Border-Colors*/
   --borderColor: rgb(117, 117, 117);
+  --borderColor-light: rgb(232, 232, 232);
 
+  /*Font-Colors*/
   --f-color: rgb(45, 45, 45);
+  --f-color-white:rgb(255, 255, 255);
 
+
+  /*Font-Family*/
   --ff-body: "Courier New", Courier, monospace;
-  --ff-heading:  "Brandon Grot W01 Light", sans-serif;
+  --ff-heading: "Brandon Grot W01 Light", sans-serif;
 
-  --fs-heading: clamp(1.75rem, 2.5vw, 2.5rem);
-  --fs-subheading: clamp(1.5rem, 2vw, 2rem);
-  --fs-card-title: 1.375rem;
+    /*Font-Size*/
+  --fs-heading: clamp(2rem, 5vw, 4rem);
+  --fs-subheading: clamp(1.5rem, 3vw, 2.5rem);
+  --fs-card-title:  1.5rem;
   --fs-body: 1rem;
 
+  /*Spaces*/
   --space-xs: 0.2rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -22,20 +33,17 @@
   --space-xl: 3rem;
   --space-xxl: 4rem;
   --space-2xl: 5.5rem;
-  --space-3xl:50rem ;
+  --space-3xl: 50rem;
 
-  --lh-heading: 1.1rem;
-  --lh-body: 1.5rem;
+  /*Lineheight*/
+  --lh-heading: 110%;
+  --lh-subheading:130%;
+  --lh-body: 150%;
 
+  /*generel Icon-Size*/
   --iconsize: 1.5lh;
 
   /*Table*/
-  --base: #5bb9b8;
   --subtle: #54a1a0;
-  --rain: #2c3845;
   --poppy: #bd2a4e;
-  
-
-  
-
 }
