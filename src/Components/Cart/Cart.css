@@ -36,7 +36,7 @@
 
   .cart-header-pad {
     margin-inline: var(--space-md);
-    margin-block: var(--space-md);
+    margin-block: var(--space-sm);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -107,8 +107,8 @@
   aspect-ratio: auto 1/1;
   overflow-clip-margin: content-box;
   overflow: clip;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
 
   .cart-product-image {
     object-fit: cover;
@@ -238,10 +238,12 @@
   }
 
   .show-cart-Btn {
+    transition-duration: 0.4s;
     &:hover {
-      background-color: #ffffff;
-      color: var(--f-color);
+      background-color: var(--f-color);
+      color: white;
     }
+
     &:active {
       transform: scale(0.98);
     }
