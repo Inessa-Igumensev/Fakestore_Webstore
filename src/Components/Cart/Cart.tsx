@@ -26,6 +26,7 @@ export default function Cart({ isOpen, onClose, user_id }: Cartprops) {
   });
   const [isCouponInput, setIsCouponInput] = useState<boolean>(false);
 
+  
   function showCouponInput() {
     setIsCouponInput((isCouponInput) => !isCouponInput);
   }

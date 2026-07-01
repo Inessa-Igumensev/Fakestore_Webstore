@@ -4,88 +4,81 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
 
-  flex-direction: row;
+  align-items: flex-start;
+  flex-direction: column;
   margin-block: var(--space-xl);
   gap: var(--space-lg);
 }
 
-.admin-container {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: clamp(14rem, 25vw, 18rem);
-  flex-shrink: 0;
-}
-
-@media (max-width: 900px) {
-  .admin {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .admin-container {
-    width: min(100%, 18rem);
-  }
-
-  .collabsible-set {
-    width: 100%;
-  }
-}
-
-.myAdmin-info {
-  margin-inline: var(--space-lg);
-  margin-block: var(--space-md);
-
-  h1 {
-    font-family: var(--ff-heading);
-    font-size: var(--fs-card-title);
-    text-align: center;
-  }
-}
-
-.defaultPic {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-.admininfo-body {
-  margin-block-start: var(--space-md);
-
-  p {
-    font-family: var(--ff-body);
-    font-size: var(--fs-body);
-    padding-block: var(--space-xs);
-  }
-}
-
-.edit-options {
-  margin-block: var(--space-sm);
-  text-align: center;
-  font-size: var(--iconsize);
-  cursor: pointer;
-}
-
-.adminContact-info {
-  border: none;
-  width: 100%;
-  cursor: pointer;
-  outline: 0;
-  display: inline-block;
-  text-align: center;
-  font-family: var(--ff-body);
-  font-size: var(--fs-body);
-  padding-block: var(--space-md);
-  background-color: var(--f-color);
-  border: 3px solid var(--f-color);
-  transition-duration: 0.4s;
-  color: white;
+.admin-profil-card {
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0 0.0625em 0.0625em rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  z-index: 100;
+  height: var(--circleSize) em;
+  width: var(--circleSize) em;
+  transform: translate(-50%, -50%) scale(0.85);
+  transition:
+    width var(--speed) ease-in,
+    box-shadow var(--speed) ease-in,
+    z-index 0s linear var(--speed),
+    transform var(--speed) linear;
 
   &:hover {
-    background-color: #ffffff;
-    color: var(--f-color);
+    box-shadow: 0 0.0625em 0.0625em rgba(0, 0, 0, 0.6);
+    transform: translate(-50%, -50%) scale(1);
+    transition:
+      width var(--speed) ease-out calc( var(--speed)/ 2.25),
+      box-shadow var(--speed) ease-out  calc( var(--speed)/ 2.25),
+      z-index 0s linear,
+      transform var(--speed) linear;
+      width: calc(var(--circleSize) * 2.75em );
+      z-index: 200;
   }
+
+  .admin-profilC-wrapper{
+    background: #ffffff;
+        border-radius: 50%;
+        display: inline-block;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        text-align: left;
+        transition: border-radius var(--speed) ease-in calc(var(--speed) / 2.5); 
+        width: 100%;
+
+        &:hover{
+          border-radius: 0;
+            transition:  border-radius var(--speed)  ease-out; 
+        }
+  }
+
+
+  .admin-avatar{
+      border-radius: 50%;
+        bottom: 0;
+        cursor: pointer;
+        display: inline-block;
+        height: var(--circleSize)em;
+        width: var(--circleSize)em;
+        max-width: 100%;
+        left: 0;
+        transition: border-radius var(--speed) ease-in calc(var(--speed) / 1.5); 
+
+        &:hover{
+          border-radius: 0;
+          transition: border-radius var(--speed) ease-out;
+        }
+
+  }
+
 }
+
+
+
+
 
 .collabsible-set {
   flex: 1;

@@ -47,4 +47,12 @@
   /*Table*/
   --subtle: #54a1a0;
   --poppy: #bd2a4e;
+
+  /*Admin Avatar*/
+  --green:#00B4BB;
+  --blue: #4178BE;
+  --text: #aaa;
+  --circleSize: 4;
+  --marginleft:8;
+  --speed:0.25s;
 }

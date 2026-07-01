@@ -63,31 +63,26 @@ export default function Admin() {
 
   return (
     <div className="admin">
-      <div className="admin-container">
-        <img
-          className="defaultPic"
-          src={defaultPic}
-          alt="default Picture"
-        ></img>
-        <div className="myAdmin-info">
-          <h1>
-            {myInfo?.firstname} {myInfo?.surname}
-          </h1>
-          <div className="admininfo-body">
-            <p>E-Mail: {myInfo.email}</p>
-            <p>Land: {myInfo.country}</p>
-            <p>Straße: {myInfo.street}</p>
-            <p>Postleitzahl: {myInfo.postal_code}</p>
-            <p>Mobil Nummer: {myInfo.mobile}</p>
-            <p>Erstellt am: {myInfo.created_at}</p>
+      <div className="admin-profil-card">
+        <div className="admin-profilC-wrapper">
+          <div className="admin-profil-image-container">
+            <img className="admin-avatar" src={defaultPic} alt="Admin Avatar" />
+          </div>
+
+          <div className="admin-profilC-info">
+            <div className="admin-profilC-head">
+              <h1>Admin</h1>
+              <p className="admin-name">
+                {myInfo.firstname} {myInfo.surname}
+              </p>
+            </div>
+
+            <div className="admin-icons">
+              <Symbol name="myuser" />
+              <Symbol name="edit" />
+            </div>
           </div>
         </div>
-        <div className="edit-options">
-          <span>
-            <Symbol name="edit" />
-          </span>
-        </div>
-        <button className="adminContact-info">Kontakt Infomartionen</button>
       </div>
 
       <div className="collabsible-set">

@@ -25,7 +25,7 @@ export function Contact() {
       <div className="info-contact">
         <div className="p-contacts">
           <h1>Öffnungszeiten</h1>
-          <p>Mon - Fri:7 - 22 Uhr</p>
+          <p>Mon - Fri: 7 - 22 Uhr</p>
           <p>Sa.: 8 - 22 Uhr</p>
           <p>So.: 8 - 23 Uhr</p>
         </div>
